@@ -19,9 +19,27 @@ escrever aqui
 escrever aqui
 
 # 4. Requisitos do sistema
-### 4.1 Regras de Negócio.
+### 4.1. Regras de Negócio.
 | Número | Nome | Descrição |
-|:------:|:----:|:---------:|
+|:-------|:-----|:----------|
 | RN01 | Título | Descrição |
 
+### 4.2. Requisitos Funcionais.
+| Número | Nome | Descrição |
+|:-------|:-----|:----------|
+| RF01 | Título | Descrição |
+
+### 4.3. Requisitos Não-Funcionais.
+| Número | Nome | Descrição |
+|:-------|:-----|:----------|
+| RNF01 | Título | Descrição |
+
+# 5. Casos de Uso
+### 5.1. Diagrama de Caso de Uso
+Imagem aqui
+
+### 5.2. Descrição dos Casos de Uso
+| UC01 - Título do Caso de Uso |
+|:-----------------------------|
+| 1.1. Identificador |
 
