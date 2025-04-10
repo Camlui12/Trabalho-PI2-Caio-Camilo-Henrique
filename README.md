@@ -32,9 +32,10 @@ escrever aqui
 |:-------|:-----|:----------|
 | RN01 | Cobrança mínima | O estacionamento cobra um valor fixo mínimo correspondente à primeira hora, mesmo que o veículo permaneça menos tempo. | É permitido um período de tolerância de 10 minutos sem cobrança, desde que o veículo saia dentro desse tempo. |
 | RN02 | Cobrança por fração de hora | Após a primeira hora, o valor é calculado por frações de 15 minutos. |
-| RN03 | Tolerância gratuita de tempo | 
+| RN03 | Tolerância gratuita de tempo | É permitido um período de tolerância de 10 minutos sem cobrança, desde que o veículo saia dentro desse tempo. |
 | RN04 | Acesso de assistente mensal | Clientes que assinam o plano mensal têm direito a entrar e sair do estacionamento quantas vezes quiserem no mês. |
-|
+| RN05 | Limites de vagas por tipo de veículo | O estacionamento possui quantidade limitada de vagas para cada tipo de veículo. |
+| RN06 | Desconto para horários noturnos | Entre 23h e 6h é aplicado um desconto de 30% na tarifa padrão |
 
 ### 4.2. Requisitos Funcionais.
 | Número | Nome | Descrição |
