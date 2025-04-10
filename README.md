@@ -21,7 +21,7 @@ escrever aqui
 # 4. Requisitos do sistema
 ### 4.1 Regras de Negócio.
 | Número | Nome | Descrição |
-| ------ / ---- / --------- /
+|:------:|:----:|:---------:|
 | RN01 | Título | Descrição |
 
 
