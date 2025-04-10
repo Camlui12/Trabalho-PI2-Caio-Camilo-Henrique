@@ -112,3 +112,21 @@ escrever aqui
 #### 13.1.1. Medições
 escrever aqui
 
+#### 13.1.2. Resultados
+escrever aqui
+
+#### 13.1.3. Hipóteses de Potenciais Gargalos do Sistema
+escrever aqui
+
+### 13.2. Segunda Fase de Testes
+#### 13.2.1. Otimização
+escrever aqui
+
+#### 13.2.2. Medições `(Refaça os Testes de Carga após otimização)`
+escrever aqui
+
+#### 13.2.3. Resultados Comparativos `(Gráficos e Interpretação)`
+escrever aqui e imagem aqui
+
+#### 13.2.4. Conclusão dos Testes
+escrever aqui
