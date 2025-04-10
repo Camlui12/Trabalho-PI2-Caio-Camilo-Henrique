@@ -28,7 +28,7 @@ escrever aqui
 
 # 4. Requisitos do sistema
 ### 4.1. Regras de Negócio.
-| Número | Nome | Descrição |
+| N° | Nome | Descrição |
 |:-------|:-----|:----------|
 | RN01 | Cobrança mínima | O estacionamento cobra um valor fixo mínimo correspondente à primeira hora, mesmo que o veículo permaneça menos tempo. | É permitido um período de tolerância de 10 minutos sem cobrança, desde que o veículo saia dentro desse tempo. |
 | RN02 | Cobrança por fração de hora | Após a primeira hora, o valor é calculado por frações de 15 minutos. |
@@ -39,12 +39,12 @@ escrever aqui
 | RN07 | Cobrança diária máxima |  |
 
 ### 4.2. Requisitos Funcionais.
-| Número | Nome | Descrição |
+| N° | Nome | Descrição |
 |:-------|:-----|:----------|
 | RF01 | Título | Descrição |
 
 ### 4.3. Requisitos Não-Funcionais.
-| Número | Nome | Descrição |
+| N° | Nome | Descrição |
 |:-------|:-----|:----------|
 | RNF01 | Título | Descrição |
 
