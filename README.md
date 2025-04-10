@@ -88,8 +88,27 @@ imagem aqui
 imagem aqui
 
 # 10. Banco de Dados Relacional
-### 10.1 Criação do Banco de Dados
+### 10.1. Criação do Banco de Dados
 ```sql
 escrever código aqui
+SELECT n sei oq n sei oq la
+```
 
+### 10.2. População inicial do banco
+escrever aqui
+
+# 11. Banco de Dados Não-Convencional
+### 11.1. Diagrama do banco NOSQL
+imagem aqui
+
+### 11.2. Criação e População do Banco de Dados
+escrever aqui
+
+# 12. Implementação
+escrever aqui
+
+# 13. Testes de carga
+### 13.1. Primeira Fase de Testes
+#### 13.1.1. Medições
+escrever aqui
 
