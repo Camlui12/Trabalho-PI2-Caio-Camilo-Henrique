@@ -3,26 +3,38 @@ escrever aqui
 
 # 2. Visão Geral do Produto
 ### 2.1. Minimundo
-escrever aqui
+O sistema de gerenciamento de estacionamento tem o objetivo de informatizar e automatizar as operações de controle de entrada e saída de veículos em um estacionamento privado. Atualmente, essas operações são feitas de forma manual, o que pode gerar erros e dificultar o controle financeiro e operacional.
+
+O sistema permite o registro da entrada e saída de veículos, armazenando informações como placa, modelo, cor e horário de entrada/saída. Com base no tempo de permanência, o sistema calcula automaticamente o valor a ser pago pelo cliente do estacionamento, considerando regras pré-definidas de tarifação (por exemplo, tarifa por hora ou frações).
+
+Além disso, o sistema oferece funcionalidades para consultar o histórico de veículos que utilizaram o estacionamento, emitir relatórios financeiros, e de lotação. Também será possível cadastrar planos mensais para clientes fixos, permitindo o gerenciamento de mensalistas.
+
+O objetivo principal do sistema é otimizar o processo de controle de veículos, reduzir erros humanos, melhorar a condição de trabalho dos funcionários e fornecer relatórios precisos para o administrador do estacionamento.
+
 
 ### 2.2. Delimitação do Escopo inicial
 escrever aqui
 
 # 3. Atores (Usuários) e Envolvidos
 ### a. Atores Principais
-escrever aqui
++ Administrador
++ Funcionários
 
 ### b. Atores secundários (se houver)
 escrever aqui
 
 ### c. Envolvidos (não utilizarão o sistema, e apenas se houver)
-escrever aqui
++ Carros
 
 # 4. Requisitos do sistema
 ### 4.1. Regras de Negócio.
 | Número | Nome | Descrição |
 |:-------|:-----|:----------|
-| RN01 | Título | Descrição |
+| RN01 | Cobrança mínima | O estacionamento cobra um valor fixo mínimo correspondente à primeira hora, mesmo que o veículo permaneça menos tempo. | É permitido um período de tolerância de 10 minutos sem cobrança, desde que o veículo saia dentro desse tempo. |
+| RN02 | Cobrança por fração de hora | Após a primeira hora, o valor é calculado por frações de 15 minutos. |
+| RN03 | Tolerância gratuita de tempo | 
+| RN04 | Acesso de assistente mensal | Clientes que assinam o plano mensal têm direito a entrar e sair do estacionamento quantas vezes quiserem no mês. |
+|
 
 ### 4.2. Requisitos Funcionais.
 | Número | Nome | Descrição |
