@@ -36,6 +36,7 @@ escrever aqui
 | RN04 | Acesso de assistente mensal | Clientes que assinam o plano mensal têm direito a entrar e sair do estacionamento quantas vezes quiserem no mês. |
 | RN05 | Limites de vagas por tipo de veículo | O estacionamento possui quantidade limitada de vagas para cada tipo de veículo. |
 | RN06 | Desconto para horários noturnos | Entre 23h e 6h é aplicado um desconto de 30% na tarifa padrão |
+| RN07 | Cobrança diária máxima |  |
 
 ### 4.2. Requisitos Funcionais.
 | Número | Nome | Descrição |
