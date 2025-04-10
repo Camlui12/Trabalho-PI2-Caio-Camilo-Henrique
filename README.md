@@ -9,11 +9,19 @@ escrever aqui
 escrever aqui
 
 # 3. Atores (Usuários) e Envolvidos
-1. Atores Principais
+### a. Atores Principais
 escrever aqui
-2. Atores Secundários (se houver)
+
+### b. Atores secundários (se houver)
 escrever aqui
-3. Envolvidos (não utilizarão o sistema, e apenas se houver)
+
+### c. Envolvidos (não utilizarão o sistema, e apenas se houver)
 escrever aqui
+
+# 4. Requisitos do sistema
+### 4.1 Regras de Negócio.
+| Número | Nome | Descrição |
+| ------ / ---- / --------- /
+| RN01 | Título | Descrição |
 
 
