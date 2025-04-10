@@ -36,7 +36,9 @@ escrever aqui
 | RN04 | Acesso de assistente mensal | Clientes que assinam o plano mensal têm direito a entrar e sair do estacionamento quantas vezes quiserem no mês. |
 | RN05 | Limites de vagas por tipo de veículo | O estacionamento possui quantidade limitada de vagas para cada tipo de veículo. |
 | RN06 | Desconto para horários noturnos | Entre 23h e 6h é aplicado um desconto de 30% na tarifa padrão |
-| RN07 | Cobrança diária máxima |  |
+| RN07 | Cobrança diária máxima | Existe um valor máximo a ser cobrado por dia de permanência. |
+| RN08 | Veículos com permanência superior a 12 horas | Se um veículo ultrapassar 12 horas de permanência, o valor é cobrado com base em diárias completas. |
+| RN09 | Taxa extra por perda de ticket | Caso o cliente peca o ticket de entrada, será cobrada uma taxa fixa adicional. |
 
 ### 4.2. Requisitos Funcionais.
 | N° | Nome | Descrição |
