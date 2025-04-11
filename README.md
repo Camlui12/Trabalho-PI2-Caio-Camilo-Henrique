@@ -39,15 +39,34 @@ escrever aqui
 | RN07 | Cobrança diária máxima | Existe um valor máximo a ser cobrado por dia de permanência. |
 | RN08 | Veículos com permanência superior a 12 horas | Se um veículo ultrapassar 12 horas de permanência, o valor é cobrado com base em diárias completas. |
 | RN09 | Taxa extra por perda de ticket | Caso o cliente peca o ticket de entrada, será cobrada uma taxa fixa adicional. |
+| RN10 | Descontos por fidelidade | O cliente receberá descontos com base na sua atividade mensal no estacionamento |
 
 ### 4.2. Requisitos Funcionais.
 | N° | Nome | Descrição |
 |:-------|:-----|:----------|
-| RF01 | Título | Descrição |
+| RF01 | Cadastro de veículo | O sistema deve permitir o cadastro de um novo veículo, registrando placa, modelo e cor, caso ele não esteja presente no banco de dados |
+| RF02 | Registro de entrada de veículo | O sistema deve permitir o registro da entrada de um veículo já cadastrado, vinculando o horário atual e dia ao respectivo registro do banco de dados |
+| RF03 | Cálculo de estadia | O sistema deve calcular o preço a ser pago por estadia do veículo no momento de saída dele, com base no horário e data de entrada e regras de cobrança |
+| RF04 | Horas de estadia | O sistema deve armazenar o tempo diário em horas que cada veículo permaneceu no estacionamento |
+| RF05 | Usuários | O sistema deve permitir o cadastro, edição e exclusão de usuários do sistema (operadores e administradores). |
+| RF06 | Relatórios | O sistema deve permitir a emissão de relatórios de fluxo de veículos diária, semanal e mensal. Além de exibir as respectivas receitas. |
+| RF07 | Planos mensais | O sistema deve permitir o cadastro de clientes mensalistas e calcular a cobrança conforme o plano. |
+| RF08 | Ocupação | O sistema deve exibir a quantidade de vagas disponíveis por tipo de veículo |
+| RF09 | Configuração | O sistema deve permitir a configuração dos valores de tarifa, tolerância e teto diário pelo administrador. |
+
 
 ### 4.3. Requisitos Não-Funcionais.
 | N° | Nome | Descrição |
 |:-------|:-----|:----------|
+| RNF01 | Título | Descrição |
+| RNF01 | Título | Descrição |
+| RNF01 | Título | Descrição |
+| RNF01 | Título | Descrição |
+| RNF01 | Título | Descrição |
+| RNF01 | Título | Descrição |
+| RNF01 | Título | Descrição |
+| RNF01 | Título | Descrição |
+| RNF01 | Título | Descrição |
 | RNF01 | Título | Descrição |
 
 # 5. Casos de Uso
