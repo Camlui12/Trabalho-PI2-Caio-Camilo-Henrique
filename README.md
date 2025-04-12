@@ -58,16 +58,15 @@ escrever aqui
 ### 4.3. Requisitos Não-Funcionais.
 | N° | Nome | Descrição |
 |:-------|:-----|:----------|
-| RNF01 | Título | Descrição |
-| RNF01 | Título | Descrição |
-| RNF01 | Título | Descrição |
-| RNF01 | Título | Descrição |
-| RNF01 | Título | Descrição |
-| RNF01 | Título | Descrição |
-| RNF01 | Título | Descrição |
-| RNF01 | Título | Descrição |
-| RNF01 | Título | Descrição |
-| RNF01 | Título | Descrição |
+| RNF01 | Acesso | O sistema deve ser acessível por meio de um navegador web (aplicação web responsiva). |
+| RNF02 | Tempo de resposta | O tempo de resposta para registros de entrada ou saída não deve exceder 2 segundos. |
+| RNF03 | Armazenamento | O sistema deve armazenar os dados em um banco de dados |
+| RNF04 | Usuários | Apenas usuários autenticados devem acessar o sistema. |
+| RNF05 | Permissão | O sistema deve ter níveis de permissão distintos (ex: operador não pode acessar configurações administrativas). |
+| RNF06 | UX | O sistema deve seguir boas práticas de usabilidade, com uma interface intuitiva. |
+| RNF07 | Compatibilidade | O sistema deve ser compatível com os navegadores modernos (Chrome, Firefox, Edge). |
+| RNF08 | Offline | O sistema deve permitir operação offline para registro de entradas/saídas, sincronizando quando a conexão voltar (opcional, mais avançado). |
+| RNF09 | Capacidade | O sistema deve ser capaz de atender até 100 usuários simultâneos sem perda de desempenho. |
 
 # 5. Casos de Uso
 ### 5.1. Diagrama de Caso de Uso
