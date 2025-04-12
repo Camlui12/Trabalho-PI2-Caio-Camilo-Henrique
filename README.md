@@ -1,5 +1,5 @@
 # 1. Introdução
-escrever aqui
+Este documento tem o objetivo de apresentar a ideia de um sistema que será implementado com o objetivo de auxiliar e melhorar o desempenho operacional de um estacionamento. Ele tem toda a documentação necessária para basear a construção do software a ser desenvolvido.
 
 # 2. Visão Geral do Produto
 ### 2.1. Minimundo
@@ -13,7 +13,11 @@ O objetivo principal do sistema é otimizar o processo de controle de veículos,
 
 
 ### 2.2. Delimitação do Escopo inicial
-escrever aqui
+O escopo inicial do sistema de gerenciamento de estacionamento contempla o desenvolvimento de uma aplicação web responsiva que permita o controle operacional essencial de um estacionamento rotativo. O sistema permitirá o cadastro de veículos mediante preenchimento de dados como placa, modelo, cor e tipo (por exemplo, carro, moto ou utilitário), sempre que a placa informada ainda não estiver registrada no banco de dados. Caso o veículo já esteja cadastrado, será possível apenas registrar o horário de entrada, vinculando a movimentação ao histórico existente. Isso viabiliza funcionalidades como a análise de frequência de clientes. O sistema também será responsável por registrar os horários de saída dos veículos, calcular automaticamente o tempo de permanência e aplicar as regras de tarifação configuradas, incluindo valores por hora ou fração, teto máximo diário e cobrança proporcional por diárias quando o tempo de permanência exceder 24 horas. Além disso, será possível realizar o cadastro de usuários com diferentes níveis de acesso, como operadores e administradores, garantindo a segurança e a integridade das operações. O sistema manterá um histórico completo de entradas e saídas de veículos, bem como dos pagamentos realizados, e permitirá a geração de relatórios simples de movimentação e faturamento diário. Todas essas funcionalidades estarão disponíveis via navegador.
+
+Funcionalidades como integração com sistemas de pagamento online, sensores de vaga, leitura automática de placas, emissão de nota fiscal eletrônica, aplicativo para clientes finais e integração com sistemas de segurança não fazem parte do escopo inicial, mas poderão ser consideradas em versões futuras. Este escopo busca estabelecer uma base robusta para a gestão do estacionamento, priorizando a automação das rotinas mais importantes e a organização das informações operacionais e financeiras.
+
+
 
 # 3. Atores (Usuários) e Envolvidos
 ### a. Atores Principais
