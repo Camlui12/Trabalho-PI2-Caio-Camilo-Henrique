@@ -124,7 +124,7 @@ Imagem aqui
 | 1.1. Atores: Administrador |
 | 1.2. Objetivo: Permitir a configuração de valores de tarifa, tempo de tolerância e teto máximo diário. |
 
- UC07 - Consultar Vagas Disponíveis |
+ UC09 - Consultar Vagas Disponíveis |
 |:---------------------------------------|
 | 1.1. Atores: Operador |
 | 1.2. Objetivo: Exibir em tempo real a quantidade de vagas disponíveis, separadas por tipo de veículo. |
