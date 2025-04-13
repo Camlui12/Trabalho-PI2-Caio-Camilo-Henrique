@@ -28,7 +28,7 @@ Funcionalidades como integração com sistemas de pagamento online, sensores de 
 escrever aqui
 
 ### c. Envolvidos (não utilizarão o sistema, e apenas se houver)
-+ Carros
++ Veículos
 
 # 4. Requisitos do sistema
 ### 4.1. Regras de Negócio.
@@ -77,19 +77,57 @@ escrever aqui
 Imagem aqui
 
 ### 5.2. Descrição dos Casos de Uso
-| UC01 - Título do Caso de Uso |
+| UC01 - Cadastrar Veículo |
 |:-----------------------------|
-| 1.1. Identificador |
-| 1.2. Título |
-| 1.3. Atores |
-| 1.4. Objetivo |
-| 1.5. Pré-Condições |
-| 1.6. Pós-Condições |
-| 1.7. Trigger |
-| 1.8. Fluxo Básico |
-| 1.9. Fluxo alternativo |
-| 1.10. Fluxo de Exceção |
-| 1.11. Referências Cruzadas (Requisitos Associados) |
+| 1.1. Atores: Operador do estacionamento |
+| 1.2. Objetivo: Permitir que o operador cadastre um novo veículo no sistema, inserindo dados como placa, modelo, cor e tipo, quando o veículo ainda não estiver registrado no banco de dados. |
+| 1.3. Pré-Condições |
+| 1.4. Pós-Condições |
+| 1.5. Trigger |
+| 1.6. Fluxo Básico |
+| 1.7. Fluxo alternativo |
+| 1.8. Fluxo de Exceção |
+| 1.9. Referências Cruzadas (Requisitos Associados) |
+
+| UC02 - Registrar Entrada de Veículo |
+|:---------------------------------------|
+| 1.1. Atores: Operador do estacionamento |
+| 1.2. Objetivo: Registrar a entrada de um veículo já cadastrado, vinculando o horário atual ao seu histórico para controle de permanência. |
+
+| UC03 - Registrar Saída de Veículo |
+|:-------------------------------------|
+| 1.1. Atores: Operador do estacionamento |
+| 1.2. Objetivo: Permitir o registro da saída de um veículo, calcular automaticamente o valor a ser pago com base no tempo de permanência e regras de tarifação. |
+
+| UC04 - Consultar Frequência de Veículos |
+|:-------------------------------------------|
+| 1.1. Atores: Administrador |
+| 1.2. Objetivo: Exibir a quantidade de horas que um determinado veículo utilizou o estacionamento durante um período de tempo selecionado. |
+
+| UC05 - Gerar Relatórios de Movimentação |
+|:-------------------------------------------|
+| 1.1. Atores: Administrador |
+| 1.2. Objetivo: Gerar relatórios sobre entradas, saídas e faturamento diário ou por período definido. |
+
+| UC06 - Cadastrar Usuário |
+|:-----------------------------|
+| 1.1. Atores: Administrador |
+| 1.2. Objetivo: Permitir o cadastro de novos usuários do sistema, atribuindo níveis de acesso (como operador ou administrador). |
+
+| UC07 - Autenticar Usuário |
+|:-----------------------------|
+| 1.1. Atores: Operador, Administrador |
+| 1.2. Objetivo: Validar as credenciais de acesso do usuário ao sistema, liberando funcionalidades conforme seu nível de permissão. |
+
+| UC08 - Configurar Regras de Cobrança |
+|:----------------------------------------|
+| 1.1. Atores: Administrador |
+| 1.2. Objetivo: Permitir a configuração de valores de tarifa, tempo de tolerância e teto máximo diário. |
+
+ UC07 - Consultar Vagas Disponíveis |
+|:---------------------------------------|
+| 1.1. Atores: Operador |
+| 1.2. Objetivo: Exibir em tempo real a quantidade de vagas disponíveis, separadas por tipo de veículo. |
 
 # 6. Diagrama de Classes
 ### 6.1. Diagrama
