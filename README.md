@@ -1,4 +1,4 @@
-#PARTICIPANTES:# Caio Araújo, Camilo Lima e Henrique Rocha 
+**PARTICIPANTES:** Caio Araújo, Camilo Lima e Henrique Rocha 
 
 # 1. Introdução
 Este documento tem o objetivo de apresentar a ideia de um sistema que será implementado com o objetivo de auxiliar e melhorar o desempenho operacional de um estacionamento. Ele tem toda a documentação necessária para basear a construção do software a ser desenvolvido.
