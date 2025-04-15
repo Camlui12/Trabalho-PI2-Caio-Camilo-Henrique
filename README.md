@@ -41,23 +41,23 @@ escrever aqui
 | RN03 | Tolerância gratuita de tempo | É permitido um período de tolerância de 10 minutos sem cobrança, desde que o veículo saia dentro desse tempo. |
 | RN04 | Acesso de assistente mensal | Clientes que assinam o plano mensal têm direito a entrar e sair do estacionamento quantas vezes quiserem no mês. |
 | RN05 | Limites de vagas por tipo de veículo | O estacionamento possui quantidade limitada de vagas para cada tipo de veículo. |
-| RN06 | Desconto para horários noturnos | Entre 23h e 6h é aplicado um desconto de 30% na tarifa padrão |
+| RN06 | Desconto para horários noturnos | Entre 23h e 6h é aplicado um desconto de 30% na tarifa padrão. |
 | RN07 | Cobrança diária máxima | Existe um valor máximo a ser cobrado por dia de permanência. |
 | RN08 | Veículos com permanência superior a 12 horas | Se um veículo ultrapassar 12 horas de permanência, o valor é cobrado com base em diárias completas. |
 | RN09 | Taxa extra por perda de ticket | Caso o cliente peca o ticket de entrada, será cobrada uma taxa fixa adicional. |
-| RN10 | Descontos por fidelidade | O cliente receberá descontos com base na sua atividade mensal no estacionamento |
+| RN10 | Descontos por fidelidade | O cliente receberá descontos com base na sua atividade mensal no estacionamento. |
 
 ### 4.2. Requisitos Funcionais.
 | N° | Nome | Descrição |
 |:-------|:-----|:----------|
-| RF01 | Cadastro de veículo | O sistema deve permitir o cadastro de um novo veículo, registrando placa, modelo e cor, caso ele não esteja presente no banco de dados |
-| RF02 | Registro de entrada de veículo | O sistema deve permitir o registro da entrada de um veículo já cadastrado, vinculando o horário atual e dia ao respectivo registro do banco de dados |
-| RF03 | Cálculo de estadia | O sistema deve calcular o preço a ser pago por estadia do veículo no momento de saída dele, com base no horário e data de entrada e regras de cobrança |
-| RF04 | Horas de estadia | O sistema deve armazenar o tempo diário em horas que cada veículo permaneceu no estacionamento |
+| RF01 | Cadastro de veículo | O sistema deve permitir o cadastro de um novo veículo, registrando placa, modelo e cor, caso ele não esteja presente no banco de dados. |
+| RF02 | Registro de entrada de veículo | O sistema deve permitir o registro da entrada de um veículo já cadastrado, vinculando o horário atual e dia ao respectivo registro do banco de dados. |
+| RF03 | Cálculo de estadia | O sistema deve calcular o preço a ser pago por estadia do veículo no momento de saída dele, com base no horário e data de entrada e regras de cobrança. |
+| RF04 | Horas de estadia | O sistema deve armazenar o tempo diário em horas que cada veículo permaneceu no estacionamento. |
 | RF05 | Usuários | O sistema deve permitir o cadastro, edição e exclusão de usuários do sistema (operadores e administradores). |
 | RF06 | Relatórios | O sistema deve permitir a emissão de relatórios de fluxo de veículos diária, semanal e mensal. Além de exibir as respectivas receitas. |
 | RF07 | Planos mensais | O sistema deve permitir o cadastro de clientes mensalistas e calcular a cobrança conforme o plano. |
-| RF08 | Ocupação | O sistema deve exibir a quantidade de vagas disponíveis por tipo de veículo |
+| RF08 | Ocupação | O sistema deve exibir a quantidade de vagas disponíveis por tipo de veículo. |
 | RF09 | Configuração | O sistema deve permitir a configuração dos valores de tarifa, tolerância e teto diário pelo administrador. |
 
 
@@ -66,7 +66,7 @@ escrever aqui
 |:-------|:-----|:----------|
 | RNF01 | Acesso | O sistema deve ser acessível por meio de um navegador web (aplicação web responsiva). |
 | RNF02 | Tempo de resposta | O tempo de resposta para registros de entrada ou saída não deve exceder 2 segundos. |
-| RNF03 | Armazenamento | O sistema deve armazenar os dados em um banco de dados |
+| RNF03 | Armazenamento | O sistema deve armazenar os dados em um banco de dados. |
 | RNF04 | Usuários | Apenas usuários autenticados devem acessar o sistema. |
 | RNF05 | Permissão | O sistema deve ter níveis de permissão distintos (ex: operador não pode acessar configurações administrativas). |
 | RNF06 | UX | O sistema deve seguir boas práticas de usabilidade, com uma interface intuitiva. |
