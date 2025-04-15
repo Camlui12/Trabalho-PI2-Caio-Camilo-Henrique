@@ -81,15 +81,15 @@ Imagem aqui
 ### 5.2. Descrição dos Casos de Uso
 | Nome | Descrição |
 |:-----|-----------|
-| UC01 - Cadastrar Veículo | Atores: Operador do estacionamento.<br>Objetivo: Permitir que o operador cadastre um novo veículo no sistema, inserindo dados como placa, modelo, cor e tipo, quando o veículo ainda não estiver registrado no banco de dados. |
-| UC02 - Registrar Entrada de Veículo | Atores: Operador do estacionamento<br>Objetivo: Registrar a entrada de um veículo já cadastrado, vinculando o horário atual ao seu histórico para controle de permanência. |
-| UC03 - Registrar Saída de Veículo | Atores: Operador do estacionamento<br>Objetivo: Permitir o registro da saída de um veículo, calcular automaticamente o valor a ser pago com base no tempo de permanência e regras de tarifação. |
-| UC04 - Consultar Frequência de Veículos | Atores: Administrador<br>Objetivo: Exibir a quantidade de horas que um determinado veículo utilizou o estacionamento durante um período de tempo selecionado. |
-| UC05 - Gerar Relatórios de Movimentação | Atores: Administrador<br>Objetivo: Gerar relatórios sobre entradas, saídas e faturamento diário ou por período definido. |
-| UC06 - Cadastrar Usuário | Atores: Administrador<br>Objetivo: Permitir o cadastro de novos usuários do sistema, atribuindo níveis de acesso (como operador ou administrador). |
-| UC07 - Autenticar Usuário |Atores: Operador, Administrador<br>Objetivo: Validar as credenciais de acesso do usuário ao sistema, liberando funcionalidades conforme seu nível de permissão. |
-| UC08 - Configurar Regras de Cobrança | Atores: Administrador<br>Objetivo: Permitir a configuração de valores de tarifa, tempo de tolerância e teto máximo diário. |
-| UC09 - Consultar Vagas Disponíveis | Atores: Operador<br>Objetivo: Exibir em tempo real a quantidade de vagas disponíveis, separadas por tipo de veículo. |
+| UC01 - Cadastrar Veículo | **Atores**: Operador do estacionamento.<br>**Objetivo**: Permitir que o operador cadastre um novo veículo no sistema, inserindo dados como placa, modelo, cor e tipo, quando o veículo ainda não estiver registrado no banco de dados. |
+| UC02 - Registrar Entrada de Veículo | **Atores**: Operador do estacionamento<br>**Objetivo**: Registrar a entrada de um veículo já cadastrado, vinculando o horário atual ao seu histórico para controle de permanência. |
+| UC03 - Registrar Saída de Veículo | **Atores**: Operador do estacionamento<br>**Objetivo**: Permitir o registro da saída de um veículo, calcular automaticamente o valor a ser pago com base no tempo de permanência e regras de tarifação. |
+| UC04 - Consultar Frequência de Veículos | **Atores**: Administrador<br>**Objetivo**: Exibir a quantidade de horas que um determinado veículo utilizou o estacionamento durante um período de tempo selecionado. |
+| UC05 - Gerar Relatórios de Movimentação | **Atores**: Administrador<br>**Objetivo**: Gerar relatórios sobre entradas, saídas e faturamento diário ou por período definido. |
+| UC06 - Cadastrar Usuário | **Atores**: Administrador<br>**Objetivo**: Permitir o cadastro de novos usuários do sistema, atribuindo níveis de acesso (como operador ou administrador). |
+| UC07 - Autenticar Usuário |**Atores**: Operador, Administrador<br>**Objetivo**: Validar as credenciais de acesso do usuário ao sistema, liberando funcionalidades conforme seu nível de permissão. |
+| UC08 - Configurar Regras de Cobrança | **Atores**: Administrador<br>**Objetivo**: Permitir a configuração de valores de tarifa, tempo de tolerância e teto máximo diário. |
+| UC09 - Consultar Vagas Disponíveis | **Atores**: Operador<br>**Objetivo**: Exibir em tempo real a quantidade de vagas disponíveis, separadas por tipo de veículo. |
 
 # 6. Diagrama de Classes
 ### 6.1. Diagrama
