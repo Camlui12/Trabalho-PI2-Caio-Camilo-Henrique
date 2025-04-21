@@ -96,7 +96,68 @@ escrever aqui
 ![Diagrama de classes](/static/images/classes.jpeg)
 
 ### 6.2. Descrição das Entidades
-escrever aqui
+#### Classe: 'Veiculo'
+**Atributos:**
++ placa: String
++ modelo: String
++ cor: String
++ tipo: Enum (Carro, Moto, Utilitario, etc)
+
+**Descrição:** Representa os veículos que acessam o estacionamento. Cada veículo é identificade unicamente pela placa.
+
+**Relacionamentos:**
++ Associação com a classe 'Estadia': um veículo pode ter várias estadias.
++ Associação com a classe 'ClienteMensalista': um veículo pode estar associado a apenas um cliente mensalista.
+
+### Classe: 'Estadia'
+**Atributos:**
++ id: Inteiro
++ dataHoraEntrada: DateTime
++ dataHoraSaida: DateTime
++ valorCobrado: Float
+
+**Descrição:** Representa a permanência de um veículo no estacionamento. Os horários de esntrada e saída são usados para calcular o valor cobrado.
+
+#### Classe: 'Usuario'
+**Atributos:**
++ id: Inteiro
++ nome: String
++ login: String
++ senha: String
++ tipo: Enum (Operador, Administrador)
+
+**Descrição:** Representa os usuários que utilizam o sistema, podendo ser operadores ou administradores com permissões distintas.
+
+#### Classe: 'ConfiguracaoTarifa'
+**Atributos:**
+- id: Inteiro
+- valorHora: Float
+- toleranciaMinutos: Inteiro
+- tetoDiario: Float
+- dataVigencia: Date
+
+**Descrição:** Armazena os parâmetros de cobrança do estacionamento. Apenas a configuração vigente na data da Estadia deve ser considerada para o cálculo do valor.
+
+#### Classe: 'ClienteMensalista'
+**Atributos:**
+- id: Inteiro
+- nome: String
+- cpf: String
+- valorMensal: Float
+
+**Descrição:** Representa clientes que utilizam planos mensais. A cobrança não é feita por estadia, mas sim por contrato fixo mensal.
+
+**Relacionamentos:**
+- Associação com 'Veiculo': cada cliente mensalista possui um veículo vinculado.
+
+#### Classe: 'Relatorio'
+**Atributos:**
+- id: Inteiro
+- tipo: Enum (Diário, Semanal, Mensal)
+- dataGeracao: DateTime
+- conteudo: String
+
+**Descrição:** Armazena relatórios gerados sobre fluxo de veículos e receitas.
 
 # 7. Banco de Dados
 ### 7.1. Esquema Lógico de Banco de Dados Relacional
