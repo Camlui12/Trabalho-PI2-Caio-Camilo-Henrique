@@ -96,7 +96,7 @@ escrever aqui
 ![Diagrama de classes](/static/images/classes.jpeg)
 
 ### 6.2. Descrição das Entidades
-#### Classe: 'Veiculo'
+#### Classe: `Veiculo`
 **Atributos:**
 + placa: String
 + modelo: String
@@ -106,10 +106,10 @@ escrever aqui
 **Descrição:** Representa os veículos que acessam o estacionamento. Cada veículo é identificade unicamente pela placa.
 
 **Relacionamentos:**
-+ Associação com a classe 'Estadia': um veículo pode ter várias estadias.
-+ Associação com a classe 'ClienteMensalista': um veículo pode estar associado a apenas um cliente mensalista.
++ Associação com a classe `Estadia`: um veículo pode ter várias estadias.
++ Associação com a classe `ClienteMensalista`: um veículo pode estar associado a apenas um cliente mensalista.
 
-### Classe: 'Estadia'
+### Classe: `Estadia`
 **Atributos:**
 + id: Inteiro
 + dataHoraEntrada: DateTime
@@ -118,7 +118,7 @@ escrever aqui
 
 **Descrição:** Representa a permanência de um veículo no estacionamento. Os horários de esntrada e saída são usados para calcular o valor cobrado.
 
-#### Classe: 'Usuario'
+#### Classe: `Usuario`
 **Atributos:**
 + id: Inteiro
 + nome: String
@@ -128,7 +128,7 @@ escrever aqui
 
 **Descrição:** Representa os usuários que utilizam o sistema, podendo ser operadores ou administradores com permissões distintas.
 
-#### Classe: 'ConfiguracaoTarifa'
+#### Classe: `ConfiguracaoTarifa`
 **Atributos:**
 - id: Inteiro
 - valorHora: Float
@@ -138,7 +138,7 @@ escrever aqui
 
 **Descrição:** Armazena os parâmetros de cobrança do estacionamento. Apenas a configuração vigente na data da Estadia deve ser considerada para o cálculo do valor.
 
-#### Classe: 'ClienteMensalista'
+#### Classe: `ClienteMensalista`
 **Atributos:**
 - id: Inteiro
 - nome: String
@@ -148,9 +148,9 @@ escrever aqui
 **Descrição:** Representa clientes que utilizam planos mensais. A cobrança não é feita por estadia, mas sim por contrato fixo mensal.
 
 **Relacionamentos:**
-- Associação com 'Veiculo': cada cliente mensalista possui um veículo vinculado.
+- Associação com `Veiculo`: cada cliente mensalista possui um veículo vinculado.
 
-#### Classe: 'Relatorio'
+#### Classe: `Relatorio`
 **Atributos:**
 - id: Inteiro
 - tipo: Enum (Diário, Semanal, Mensal)
