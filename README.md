@@ -76,7 +76,7 @@ escrever aqui
 
 # 5. Casos de Uso
 ### 5.1. Diagrama de Caso de Uso
-![Diagrama de casos de uso](static/images/casos-de-uso.jpeg)
+<img src="static/images/casos-de-uso.jpeg" alt="Diagrama de casos de uso" width="500px"/>
 
 ### 5.2. Descrição dos Casos de Uso
 | Nome | Descrição |
