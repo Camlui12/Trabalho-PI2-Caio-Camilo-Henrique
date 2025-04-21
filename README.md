@@ -109,6 +109,8 @@ escrever aqui
 + Associação com a classe `Estadia`: um veículo pode ter várias estadias.
 + Associação com a classe `ClienteMensalista`: um veículo pode estar associado a apenas um cliente mensalista.
 
+---
+
 ### Classe: `Estadia`
 **Atributos:**
 + id: Inteiro
@@ -117,6 +119,8 @@ escrever aqui
 + valorCobrado: Float
 
 **Descrição:** Representa a permanência de um veículo no estacionamento. Os horários de esntrada e saída são usados para calcular o valor cobrado.
+
+---
 
 #### Classe: `Usuario`
 **Atributos:**
@@ -128,6 +132,8 @@ escrever aqui
 
 **Descrição:** Representa os usuários que utilizam o sistema, podendo ser operadores ou administradores com permissões distintas.
 
+---
+
 #### Classe: `ConfiguracaoTarifa`
 **Atributos:**
 - id: Inteiro
@@ -137,6 +143,8 @@ escrever aqui
 - dataVigencia: Date
 
 **Descrição:** Armazena os parâmetros de cobrança do estacionamento. Apenas a configuração vigente na data da Estadia deve ser considerada para o cálculo do valor.
+
+---
 
 #### Classe: `ClienteMensalista`
 **Atributos:**
@@ -149,6 +157,8 @@ escrever aqui
 
 **Relacionamentos:**
 - Associação com `Veiculo`: cada cliente mensalista possui um veículo vinculado.
+
+---
 
 #### Classe: `Relatorio`
 **Atributos:**
