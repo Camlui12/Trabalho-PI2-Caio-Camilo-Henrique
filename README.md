@@ -52,7 +52,7 @@ escrever aqui
 
 # 5. Casos de Uso
 ### 5.1. Diagrama de Caso de Uso
-Imagem aqui
+![Diagrama de casos de uso](static/images/casos-de-uso.jpeg)
 
 ### 5.2. Descrição dos Casos de Uso
 | UC01 - Título do Caso de Uso |
@@ -71,7 +71,7 @@ Imagem aqui
 
 # 6. Diagrama de Classes
 ### 6.1. Diagrama
-escrever aqui
+![Diagrama de classes](/static/images/classes.jpeg)
 
 ### 6.2. Descrição das Entidades
 escrever aqui
