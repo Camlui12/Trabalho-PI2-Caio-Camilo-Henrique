@@ -51,8 +51,8 @@ escrever aqui
 ### 4.2. Requisitos Funcionais.
 | N° | Nome | Descrição |
 |:-------|:-----|:----------|
-| RF01 | Cadastro de veículo | O sistema deve permitir o cadastro de um novo veículo, registrando placa, modelo e cor, caso ele não esteja presente no banco de dados. |
-| RF02 | Registro de entrada de veículo | O sistema deve permitir o registro da entrada de um veículo já cadastrado, vinculando o horário atual e dia ao respectivo registro do banco de dados. |
+| RF01 | Cadastro de veículo | O sistema deve permitir o cadastro de um novo veículo, registrando placa, modelo, cor e funcionário que realizou o cadastro caso ele não esteja presente no banco de dados. |
+| RF02 | Registro de entrada de veículo | O sistema deve permitir o registro da entrada de um veículo já cadastrado, vinculando o horário atual, funcionario e dia ao respectivo registro do banco de dados. |
 | RF03 | Cálculo de estadia | O sistema deve calcular o preço a ser pago por estadia do veículo no momento de saída dele, com base no horário e data de entrada e regras de cobrança. |
 | RF04 | Horas de estadia | O sistema deve armazenar o tempo diário em horas que cada veículo permaneceu no estacionamento. |
 | RF05 | Usuários | O sistema deve permitir o cadastro, edição e exclusão de usuários do sistema (operadores e administradores). |
