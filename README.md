@@ -77,7 +77,7 @@ escrever aqui
 
 # 5. Casos de Uso
 ### 5.1. Diagrama de Caso de Uso
-<img src="static/images/casos-de-uso.jpeg" alt="Diagrama de casos de uso" width="500px"/>
+<img src="static/images/WhatsApp Image 2025-05-01 at 15.47.33.jpeg" alt="Diagrama de casos de uso" width="500px"/>
 
 ### 5.2. Descrição dos Casos de Uso
 | Nome | Descrição |
