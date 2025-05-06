@@ -172,7 +172,7 @@ escrever aqui
 
 # 7. Banco de Dados
 ### 7.1. Esquema Lógico de Banco de Dados Relacional
-imagem aqui
+![Diagrama db](/static/images/TrabalhoPI2.png)
 
 ### 7.2. Descrições
 escrever aqui
