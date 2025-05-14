@@ -94,7 +94,7 @@ escrever aqui
 
 # 6. Diagrama de Classes
 ### 6.1. Diagrama
-![Diagrama de classes](/static/images/dgClasseAtt.png)
+![Diagrama de classes](/static/images/dgClasseAtt(1).png)
 
 ### 6.2. Descrição das Entidades
 #### Classe: `Veiculo`
