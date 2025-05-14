@@ -94,7 +94,7 @@ escrever aqui
 
 # 6. Diagrama de Classes
 ### 6.1. Diagrama
-![Diagrama de classes](/static/images/diagramaClasses.jpeg)
+![Diagrama de classes](/static/images/dgClasseAtt.png)
 
 ### 6.2. Descrição das Entidades
 #### Classe: `Veiculo`
@@ -172,7 +172,7 @@ escrever aqui
 
 # 7. Banco de Dados
 ### 7.1. Esquema Lógico de Banco de Dados Relacional
-![Diagrama db](/static/images/dgClasseAtt.png)
+![Diagrama db](/static/images/TrabalhoPI2.png)
 
 ### 7.2. Descrições
 escrever aqui
