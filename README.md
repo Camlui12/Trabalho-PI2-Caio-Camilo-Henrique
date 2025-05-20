@@ -182,7 +182,7 @@ escrever aqui
 
 # 8. Projeto Arquitetural do Sistema
 ### 8.1. Diagrama de Alocação de Componentes
-<img src="static/images/Blank_diagram.jpeg" alt="Diagrama de casos de uso" width="500px"/>
+<img src="static/images/Blank_diagram.jpeg" alt="Diagrama de alocação de componentes" width="500px"/>
 
 # 9. Projeto Funcional do Sistema
 ### 9.1. Diagrama de Atividades
