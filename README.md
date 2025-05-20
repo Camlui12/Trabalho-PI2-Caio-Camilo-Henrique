@@ -182,7 +182,7 @@ escrever aqui
 
 # 8. Projeto Arquitetural do Sistema
 ### 8.1. Diagrama de Alocação de Componentes
-![Diagrama de alocação de componentes](/static/images/Black diagram.jpeg)
+![Diagrama de alocação de componentes](/static/images/Blank_diagram.jpeg)
 
 # 9. Projeto Funcional do Sistema
 ### 9.1. Diagrama de Atividades
