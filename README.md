@@ -172,7 +172,7 @@ escrever aqui
 
 # 7. Banco de Dados
 ### 7.1. Esquema Lógico de Banco de Dados Relacional
-![Diagrama db](/static/images/Diagrama_banco_de_dados)
+![Diagrama db](/static/images/Diagrama_banco_de_dados.jpeg)
 
 ### 7.2. Descrições
 escrever aqui
