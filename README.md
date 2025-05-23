@@ -77,7 +77,7 @@ escrever aqui
 
 # 5. Casos de Uso
 ### 5.1. Diagrama de Caso de Uso
-<img src="static/images/WhatsApp Image 2025-05-01 at 15.47.33.jpeg" alt="Diagrama de casos de uso" width="500px"/>
+<img src="static/images/Diagrama_casos_de_uso.jpeg" alt="Diagrama de casos de uso" width="500px"/>
 
 ### 5.2. Descrição dos Casos de Uso
 | Nome | Descrição |
@@ -94,7 +94,7 @@ escrever aqui
 
 # 6. Diagrama de Classes
 ### 6.1. Diagrama
-![Diagrama de classes](/static/images/dgClasseAtt(1).png)
+![Diagrama de classes](/static/images/Diagrama_de_classes.jpeg)
 
 ### 6.2. Descrição das Entidades
 #### Classe: `Veiculo`
@@ -172,7 +172,7 @@ escrever aqui
 
 # 7. Banco de Dados
 ### 7.1. Esquema Lógico de Banco de Dados Relacional
-![Diagrama db](/static/images/TrabalhoPI2.png)
+![Diagrama db](/static/images/Diagrama_banco_de_dados)
 
 ### 7.2. Descrições
 escrever aqui
@@ -182,7 +182,7 @@ escrever aqui
 
 # 8. Projeto Arquitetural do Sistema
 ### 8.1. Diagrama de Alocação de Componentes
-<img src="static/images/Blank_diagram.jpeg" alt="Diagrama de alocação de componentes" width="500px"/>
+<img src="static/images/Diagrama_alocacao_componentes.jpeg" alt="Diagrama de alocação de componentes" width="500px"/>
 
 # 9. Projeto Funcional do Sistema
 ### 9.1. Diagrama de Atividades
