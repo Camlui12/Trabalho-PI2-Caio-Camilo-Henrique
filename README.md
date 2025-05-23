@@ -186,13 +186,13 @@ escrever aqui
 
 # 9. Projeto Funcional do Sistema
 ### 9.1. Diagrama de Atividades
-imagem aqui
+![Diagrama atividades](/static/images/Diagrama_atividades.jpeg)
 
 ### 9.2. Diagrama de Sequência
-imagem aqui
+![Diagrama sequência](/static/images/Diagrama_sequencia.jpeg)
 
 ### 9.3. Diagrama de Estados
-imagem aqui
+![Diagrama estados](/static/images/Diagrama_estados.jpeg)
 
 # 10. Banco de Dados Relacional
 ### 10.1. Criação do Banco de Dados
