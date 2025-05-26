@@ -196,6 +196,11 @@ escrever aqui
 
 # 10. Banco de Dados Relacional
 ### 10.1. Criação do Banco de Dados
+
+#### SGBD Usado:
+    **Nome**:
+    **Versão**: 
+
 ```sql
 CREATE DATABASE estacionamento;
 USE estacionamento;
