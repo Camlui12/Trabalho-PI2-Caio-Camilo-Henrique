@@ -197,12 +197,139 @@ escrever aqui
 # 10. Banco de Dados Relacional
 ### 10.1. Criação do Banco de Dados
 ```sql
-escrever código aqui
-SELECT n sei oq n sei oq la
+CREATE DATABASE estacionamento;
+USE estacionamento;
+
+-- Tabela USUARIO
+CREATE TABLE Usuario (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    login VARCHAR(50) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    tipo ENUM('Administrador', 'Operador') NOT NULL
+);
+
+-- Tabela RELATORIO
+CREATE TABLE Relatorio (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    tipo ENUM('Diário', 'Semanal', 'Mensal') NOT NULL,
+    dataGeracao DATETIME NOT NULL,
+    conteudo TEXT,
+    vigenciaDias INT
+);
+
+-- Tabela TARIFA
+CREATE TABLE Tarifa (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    valorHora DECIMAL(10,2) NOT NULL,
+    toleranciaMinutos INT NOT NULL,
+    tetoDiario DECIMAL(10,2) NOT NULL,
+    dataVigencia DATE NOT NULL,
+    id_admin INT NOT NULL,
+    FOREIGN KEY (id_admin) REFERENCES Usuario(id)
+);
+
+-- Tabela VEICULO
+CREATE TABLE Veiculo (
+    placa VARCHAR(10) PRIMARY KEY,
+    modelo VARCHAR(50),
+    cor VARCHAR(30),
+    tipo ENUM('Carro', 'Moto', 'Utilitário') NOT NULL
+);
+
+-- Tabela CLIENTE_MENSAL
+CREATE TABLE ClienteMensal (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    valorMensal DECIMAL(10,2) NOT NULL
+);
+
+-- Tabela VEICULO_CLIENTE_MENSAL (associação N:1)
+CREATE TABLE VeiculoClienteMensal (
+    placa_veiculo VARCHAR(10) PRIMARY KEY,
+    id_plano INT NOT NULL,
+    FOREIGN KEY (placa_veiculo) REFERENCES Veiculo(placa),
+    FOREIGN KEY (id_plano) REFERENCES ClienteMensal(id)
+);
+
+-- Tabela ESTADIA
+CREATE TABLE Estadia (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    placa_veiculo VARCHAR(10) NOT NULL,
+    id_tarifa INT NOT NULL,
+    dataHoraEntrada DATETIME NOT NULL,
+    dataHoraSaida DATETIME,
+    valorCobrado DECIMAL(10,2),
+    id_usuario INT NOT NULL,
+    FOREIGN KEY (placa_veiculo) REFERENCES Veiculo(placa),
+    FOREIGN KEY (id_tarifa) REFERENCES Tarifa(id),
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id)
+);
+
+-- Tabela ESTADIA_RELATORIO (associação N:N)
+CREATE TABLE EstadiaRelatorio (
+    id_estadia INT NOT NULL,
+    id_relatorio INT NOT NULL,
+    PRIMARY KEY (id_estadia, id_relatorio),
+    FOREIGN KEY (id_estadia) REFERENCES Estadia(id),
+    FOREIGN KEY (id_relatorio) REFERENCES Relatorio(id)
+);
+
+-- Excluir a tabela PlanoMensal
+DROP TABLE IF EXISTS PlanoMensal;
+
+ALTER TABLE Usuario
+ADD COLUMN id_admin INT,
+ADD FOREIGN KEY (id_admin) REFERENCES Usuario(id);
+
+ALTER TABLE Tarifa
+ADD CONSTRAINT fk_id_admin_usuario FOREIGN KEY (id_admin) REFERENCES Usuario(id),
+ADD CHECK (id_admin IS NOT NULL);
 ```
 
 ### 10.2. População inicial do banco
-escrever aqui
+```sql
+-- Usuários
+INSERT INTO Usuario (nome, login, senha, tipo) VALUES 
+('Carlos Silva', 'carlos', 'senha123', 'Administrador'),
+('Fernanda Lima', 'fernanda', 'senha456', 'Operador');
+
+-- Atualiza id_admin nos usuários (exemplo de hierarquia)
+UPDATE Usuario SET id_admin = 1 WHERE id = 2;
+
+-- Tarifas
+INSERT INTO Tarifa (valorHora, toleranciaMinutos, tetoDiario, dataVigencia, id_admin) VALUES 
+(10.00, 15, 50.00, '2025-01-01', 1);
+
+-- Veículos
+INSERT INTO Veiculo (placa, modelo, cor, tipo) VALUES 
+('ABC1234', 'Civic', 'Prata', 'Carro'),
+('XYZ5678', 'Biz', 'Vermelha', 'Moto');
+
+-- Clientes mensais
+INSERT INTO ClienteMensal (nome, cpf, valorMensal) VALUES 
+('João Almeida', '123.456.789-00', 200.00);
+
+-- Veículo de cliente mensal
+INSERT INTO VeiculoClienteMensal (placa_veiculo, id_plano) VALUES 
+('XYZ5678', 1);
+
+-- Estadias
+INSERT INTO Estadia (placa_veiculo, id_tarifa, dataHoraEntrada, dataHoraSaida, valorCobrado, id_usuario) VALUES 
+('ABC1234', 1, '2025-05-21 08:00:00', '2025-05-21 11:00:00', 30.00, 2),
+('XYZ5678', 1, '2025-05-21 09:00:00', '2025-05-21 09:30:00', 0.00, 2);
+
+-- Relatórios
+INSERT INTO Relatorio (tipo, dataGeracao, conteudo, vigenciaDias) VALUES 
+('Diário', '2025-05-21 18:00:00', 'Relatório do dia 21/05', 1);
+
+-- Associação Estadia-Relatório
+INSERT INTO EstadiaRelatorio (id_estadia, id_relatorio) VALUES 
+(1, 1),
+(2, 1);
+
+```
 
 # 11. Banco de Dados Não-Convencional
 ### 11.1. Diagrama do banco NOSQL
