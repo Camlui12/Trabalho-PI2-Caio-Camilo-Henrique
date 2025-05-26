@@ -293,41 +293,70 @@ ADD CHECK (id_admin IS NOT NULL);
 -- Usuários
 INSERT INTO Usuario (nome, login, senha, tipo) VALUES 
 ('Carlos Silva', 'carlos', 'senha123', 'Administrador'),
-('Fernanda Lima', 'fernanda', 'senha456', 'Operador');
+('Fernanda Lima', 'fernanda', 'senha456', 'Operador'),
+('Mariana Souza', 'mariana', 'senha789', 'Operador'),
+('Lucas Rocha', 'lucas', 'senha321', 'Administrador'),
+('Patrícia Gomes', 'patricia', 'senha654', 'Operador');
 
 -- Atualiza id_admin nos usuários (exemplo de hierarquia)
-UPDATE Usuario SET id_admin = 1 WHERE id = 2;
+UPDATE Usuario SET id_admin = 1 WHERE id IN (2, 3, 5);
+UPDATE Usuario SET id_admin = 4 WHERE id = 4;
 
 -- Tarifas
 INSERT INTO Tarifa (valorHora, toleranciaMinutos, tetoDiario, dataVigencia, id_admin) VALUES 
-(10.00, 15, 50.00, '2025-01-01', 1);
+(10.00, 15, 50.00, '2025-01-01', 1),  
+(12.00, 10, 60.00, '2025-02-01', 4),  
+(8.50, 20, 45.00, '2025-03-01', 1),   
+(11.00, 15, 55.00, '2025-04-01', 4), 
+(9.75, 10, 48.00, '2025-05-01', 1);
 
 -- Veículos
 INSERT INTO Veiculo (placa, modelo, cor, tipo) VALUES 
 ('ABC1234', 'Civic', 'Prata', 'Carro'),
-('XYZ5678', 'Biz', 'Vermelha', 'Moto');
+('XYZ5678', 'Biz', 'Vermelha', 'Moto'),
+('DEF3456', 'Corolla', 'Preto', 'Carro'),
+('HIJ7890', 'Fazer 250', 'Azul', 'Moto'),
+('LMN1122', 'HB20', 'Branco', 'Carro');
 
 -- Clientes mensais
 INSERT INTO ClienteMensal (nome, cpf, valorMensal) VALUES 
-('João Almeida', '123.456.789-00', 200.00);
+('João Almeida', '123.456.789-00', 200.00),    
+('Ana Paula', '234.567.890-11', 220.00),       
+('Bruno Costa', '345.678.901-22', 180.00),     
+('Carla Mendes', '456.789.012-33', 250.00),     
+('Diego Torres', '567.890.123-44', 190.00);  
 
 -- Veículo de cliente mensal
 INSERT INTO VeiculoClienteMensal (placa_veiculo, id_plano) VALUES 
-('XYZ5678', 1);
+('XYZ5678', 1),
+('DEF3456', 2),
+('HIJ7890', 3),
+('LMN1122', 4),
+('ABC1234', 5);
 
 -- Estadias
 INSERT INTO Estadia (placa_veiculo, id_tarifa, dataHoraEntrada, dataHoraSaida, valorCobrado, id_usuario) VALUES 
-('ABC1234', 1, '2025-05-21 08:00:00', '2025-05-21 11:00:00', 30.00, 2),
-('XYZ5678', 1, '2025-05-21 09:00:00', '2025-05-21 09:30:00', 0.00, 2);
+('ABC1234', 1, '2025-05-21 08:00:00', '2025-05-21 11:00:00', 30.00, 2),  
+('XYZ5678', 1, '2025-05-21 09:00:00', '2025-05-21 09:30:00', 0.00, 2), 
+('DEF3456', 2, '2025-05-22 08:30:00', '2025-05-22 10:30:00', 24.00, 3), 
+('HIJ7890', 3, '2025-05-22 09:00:00', '2025-05-22 09:45:00', 0.00, 3), 
+('LMN1122', 4, '2025-05-22 07:00:00', '2025-05-22 12:00:00', 48.00, 2);
 
 -- Relatórios
 INSERT INTO Relatorio (tipo, dataGeracao, conteudo, vigenciaDias) VALUES 
-('Diário', '2025-05-21 18:00:00', 'Relatório do dia 21/05', 1);
+('Diário', '2025-05-21 18:00:00', 'Relatório do dia 21/05', 1),       
+('Semanal', '2025-05-23 18:00:00', 'Relatório semanal', 7),          
+('Mensal', '2025-05-01 18:00:00', 'Relatório mensal', 30),            
+('Diário', '2025-05-22 18:00:00', 'Relatório do dia 22/05', 1),        
+('Mensal', '2025-04-01 18:00:00', 'Relatório de Abril', 30); 
 
 -- Associação Estadia-Relatório
 INSERT INTO EstadiaRelatorio (id_estadia, id_relatorio) VALUES 
 (1, 1),
-(2, 1);
+(2, 1),
+(3, 2),
+(4, 3),
+(5, 3);
 
 ```
 
