@@ -366,7 +366,7 @@ INSERT INTO EstadiaRelatorio (id_estadia, id_relatorio) VALUES
 ```
 
 # 11. Banco de Dados Não-Convencional
-### 11.1. Diagrama do banco NOSQL
+### 11.1. Diagrama do banco NewSQL
 imagem aqui
 
 ### 11.2. Criação e População do Banco de Dados
