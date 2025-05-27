@@ -198,8 +198,8 @@ escrever aqui
 ### 10.1. Criação do Banco de Dados
 
 #### SGBD Usado
-**Nome**:
-**Versão**: 
+**Nome**:MySQL
+**Versão**: mysql  Ver 9.3.0 for macos15.2 on arm64 (Homebrew)
 
 ```sql
 CREATE DATABASE estacionamento;
