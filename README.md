@@ -370,7 +370,53 @@ INSERT INTO EstadiaRelatorio (id_estadia, id_relatorio) VALUES
 imagem aqui
 
 ### 11.2. Criação e População do Banco de Dados
-escrever aqui
+```python
+
+# Criando tabelas
+class TipoRelatorioEnum(enum.Enum):
+    ANALITICO = 'analitico'
+    SINTETICO = 'sintetico'
+    COMPARATIVO = 'comparativo'
+
+class MetricasUso(Base):
+    __tablename__ = 'metricas_uso'
+
+    id = Column(Integer, primary_key=True)
+    data = Column(Date, nullable=False)
+    acessos = Column(Integer)
+    registros_entrada = Column(Integer)
+    registros_saida = Column(Integer)
+    relatorios_gerados = Column(Integer)
+
+class LogPedidoRelatorio(Base):
+    __tablename__ = 'log_pedido_relatorio'
+
+    id_usuario = Column(Integer, primary_key=True)
+    data_pedido = Column(Date, primary_key=True)
+    tipo_relatorio = Column(Enum(TipoRelatorioEnum), nullable=False)
+
+Base.metadata.create_all(engine)
+
+#Inserindo dados
+metricas = [
+    MetricasUso(id=1, data=datetime.date(2025, 6, 1), acessos=120, registros_entrada=300, registros_saida=280, relatorios_gerados=10),
+    MetricasUso(id=2, data=datetime.date(2025, 6, 2), acessos=90, registros_entrada=200, registros_saida=190, relatorios_gerados=7),
+    MetricasUso(id=3, data=datetime.date(2025, 6, 3), acessos=150, registros_entrada=350, registros_saida=330, relatorios_gerados=12),
+    MetricasUso(id=4, data=datetime.date(2025, 6, 4), acessos=80, registros_entrada=180, registros_saida=170, relatorios_gerados=5),
+    MetricasUso(id=5, data=datetime.date(2025, 6, 5), acessos=110, registros_entrada=270, registros_saida=260, relatorios_gerados=8),
+]
+
+logs = [
+    LogPedidoRelatorio(id_usuario=101, data_pedido=datetime.date(2025, 6, 1), tipo_relatorio=TipoRelatorioEnum.ANALITICO),
+    LogPedidoRelatorio(id_usuario=102, data_pedido=datetime.date(2025, 6, 1), tipo_relatorio=TipoRelatorioEnum.SINTETICO),
+    LogPedidoRelatorio(id_usuario=101, data_pedido=datetime.date(2025, 6, 2), tipo_relatorio=TipoRelatorioEnum.COMPARATIVO),
+    LogPedidoRelatorio(id_usuario=103, data_pedido=datetime.date(2025, 6, 3), tipo_relatorio=TipoRelatorioEnum.ANALITICO),
+    LogPedidoRelatorio(id_usuario=104, data_pedido=datetime.date(2025, 6, 4), tipo_relatorio=TipoRelatorioEnum.SINTETICO),
+]
+
+session.add_all(metricas + logs)
+session.commit()
+```
 
 # 12. Implementação
 escrever aqui
