@@ -366,6 +366,7 @@ INSERT INTO EstadiaRelatorio (id_estadia, id_relatorio) VALUES
 ```
 
 # 11. Banco de Dados Não-Convencional
+### CockroachDB v25.1
 ### 11.1. Diagrama do banco NewSQL
 ![Diagrama banco de dados NewSQl](/static/images/Diagrama_bd_newsql.jpg)
 
