@@ -12,4 +12,4 @@ class Tarifa(db.Model):
     
     # Relacionamentos
     estadia = db.relationship('Estadia',
-                                backref=db.backref('tarifa', uselist=False), uselist=False)
+                                backref=db.backref('tarifas', uselist=False), uselist=False)

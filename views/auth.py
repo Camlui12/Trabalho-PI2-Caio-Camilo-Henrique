@@ -12,11 +12,11 @@ def login():
 def autenticar():
     global mensagem
     
-    user = Usuario.query.filter_by(usuario=request.form.get('usuario')).first()
+    user = Usuario.query.filter_by(login=request.form.get('usuario')).first()
     if user:
         if request.form.get('senha') == user.senha:
             
-            session['usuario_logado'] = user.usuario
+            session['usuario_logado'] = user.login
             session['tipo_usuario'] = user.tipo.value
             
             mensagem = ''

@@ -14,4 +14,4 @@ class Veiculo(db.Model):
     
     # Relacionamentos
     estadias = db.relationship('Estadia',
-                                backref=db.backref('veiculo', lazy=True))
+                                backref=db.backref('veiculos', lazy=True))
