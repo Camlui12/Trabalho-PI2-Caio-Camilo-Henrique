@@ -8,6 +8,7 @@ db = SQLAlchemy(app)
 
 from views.index import *
 from views.auth import *
+from views.veiculos import *
 
 from models import *
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <h2>Cadastrar Veículo</h2>
+            <form >
+                <div class="form-group">
+                    <label for="placa">Placa:</label>
+                    <input type="text" id="placa" name="placa" required>
+                    <label for="modelo">Modelo:</label>
+                    <input type="text" id="modelo" name="modelo" required>
+                    <label for="cor">Cor:</label>
+                    <input type="text" id="cor" name="cor" required>
+                    <label for="tipo">Tipo:</label>
+                    <input type="enum" id="tipo" name="tipo" required>
+                </div>
+                <button>Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

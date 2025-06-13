@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkView - Gestão de Estacionamento</title>
+    <link rel="stylesheet" href="static\css\index.css">
+</head>
+<body>
+    <header>
+        <img src="static\images\LogoEXCELENTE.png" alt="Logo ParkView" style="width: 370px;">
+        <p>Gestão moderna de estacionamentos, simplifique sua administração!</p>
+    </header>
+    <main>
+        <section>
+            <h2>Olá {{ usuario }}, o que deseja?</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Registro de Entrada</h3>
+                    <p>Registre a entrada de veículos, tanto de visitantes como de mensalistas, de modo rápido e seguro.</p>
+                    <a href="/registro-entrada">Acessar &rarr;</a>
+                </div>
+                <div class="feature">
+                    <h3>Registro de Saída</h3>
+                    <p>Registre e gerencie saídas, calculando tarifas e garantindo controle do fluxo do estacionamento.</p>
+                    <a href="/registro-saida">Acessar &rarr;</a>
+                </div>
+                <div class="feature">
+                    <h3>Gestão de Mensalistas</h3>
+                    <p>Administre clientes com planos mensais.<br>
+                    <span class="atributos">
+                        <strong>Atributos:</strong> nome, CPF, valor mensal, veículo vinculado.
+                    </span>
+                    </p>
+                    <a href="/mensalistas">Acessar &rarr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        ParkView – Simplifique sua gestão, maximize seu espaço! 🚙
+    </footer>
+</body>
+</html>

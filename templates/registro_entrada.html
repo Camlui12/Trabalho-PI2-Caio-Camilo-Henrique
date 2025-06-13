@@ -9,15 +9,13 @@
 <body>
     <div class="container">
         <div class="form">
-            <h2>Login</h2>
-            <form action="{{ url_for('autenticar') }}" method="post">
+            <h2>Registro de Entrada</h2>
+            <form action="{{ url_for('confirmarEntrada') }}" method="post">
                 <div class="form-group">
-                    <label for="usuario">Usuario:</label>
-                    <input type="text" id="usuario" name="usuario" required>
-                    <label for="senha">Senha:</label>
-                    <input type="senha" id="senha" name="senha" required>
+                    <label for="placa">Placa:</label>
+                    <input type="text" id="placa" name="placa" required>
                 </div>
-                <button>Entrar</button>
+                <button>Confirmar</button>
             </form>
         </div>
     </div>
