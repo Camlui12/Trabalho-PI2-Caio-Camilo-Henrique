@@ -1,5 +1,6 @@
 from app import db
 from .enums import TipoRelatorio
+from sqlalchemy.dialects.mysql import JSON
 
 estadia_relatorio = db.Table(
     'estadia_relatorio',
@@ -13,7 +14,7 @@ class Relatorio(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tipo = db.Column(db.Enum(TipoRelatorio), nullable=False)
     geracao = db.Column(db.DateTime, nullable=False)
-    conteudo = db.Column(db.Text, nullable=False)
+    conteudo = db.Column(JSON, nullable=False)
     vigenciaDias = db.Column(db.Integer, nullable=True)
     
     # Relacionamentos

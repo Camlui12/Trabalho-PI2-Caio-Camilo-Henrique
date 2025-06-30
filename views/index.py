@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, session
 from app import app
-from models import Usuario
+from models import Usuario, Estadia
 
 @app.route('/')
 def index():
@@ -9,10 +9,19 @@ def index():
         tipo = session['tipo_usuario']
         user = Usuario.query.filter_by(login = login).first()
         nome = user.nome
+        estadias = Estadia.query.all()
+        vagas_ocupadas = 0
+        for e in estadias:
+            if e.saida is None:
+                vagas_ocupadas += 1
+                
+        vagas_totais = 100
+        vagas_disponiveis = vagas_totais - vagas_ocupadas
+        
         if tipo == 'admin':
-            return render_template('index_adm.html', usuario = nome)
+            return render_template('index_adm.html', usuario = nome, vagas_disponiveis = vagas_disponiveis, vagas_totais = vagas_totais, vagas_ocupadas = vagas_ocupadas)
         if tipo == 'operador':
-            return render_template('index_op.html', usuario = nome)
+            return render_template('index_op.html', usuario = nome, vagas_disponiveis = vagas_disponiveis, vagas_totais = vagas_totais, vagas_ocupadas = vagas_ocupadas)
     return redirect(url_for('login'))
 
 @app.route('/registro-entrada')

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <title>Gerar Relatório</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <h2>Login</h2>
+            <form action="{{ url_for('autenticar') }}" method="post">
+                <div class="form-group">
+                    <label for="tipo">Tipo do relatório:</label>
+                    <input type="radio" name="tipo" id="financeiro" value="financeiro" required>
+                    <label for="financeiro">Financeiro</label>
+                    <input type="radio" name="tipo" id="estadia" value="estadia" required>
+                    <label for="estadia">Estadia</label>
+                    <label for="vigencia">vigencia:</label>
+                    <input type="number" name="vigencia" id="vigencia" placeholder="Vigência em dias" required>
+                </div>
+                <button>Entrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

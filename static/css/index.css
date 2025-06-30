@@ -73,3 +73,24 @@ body {
             main { padding: 16px; }
             .features { flex-direction: column; }
         }
+
+        .vagas {
+            background: #e0f0ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .vagas h4{
+            margin: 0 0 8px 0;
+            color: #3a6ea5;
+            font-size: 40px;
+        }
+
+        .vagas p{
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+        }
