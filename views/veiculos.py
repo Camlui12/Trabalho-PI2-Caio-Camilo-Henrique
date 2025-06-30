@@ -78,6 +78,8 @@ def confirmarSaida():
             # Verifica se o valor ultrapassa o teto diário
             if valor > tarifa.tetoDiario:
                 valor = tarifa.tetoDiario
+            if valor < tarifa.valorHora:
+                valor = tarifa.valorHora
                 
             valor_final = round(valor, 2)
             

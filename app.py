@@ -10,6 +10,7 @@ from views.index import *
 from views.auth import *
 from views.veiculos import *
 from views.tarifa import *
+from views.mensalistas import *
 
 from models import *
 
