@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    <title>Cadastrar Veículo</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <h2>Defina novas configurações de cobrança</h2>
+            <form action="{{ url_for('atualizarTarifa') }}" method="post">
+                <div class="form-group">
+                    <label for="tarifa">Tarifa:</label>
+                    <input type="text" id="tarifa" name="tarifa" class="valor" placeholder="R$ 0,00" required>
+                    <label for="tolerancia">Tolerância (min):</label>
+                    <input type="text" id="tolerancia" name="tolerancia" required>
+                    <label for="teto">Teto Diário:</label>
+                    <input type="text" id="teto" name="teto" class="valor" placeholder="R$ 0,00" required>
+                </div>
+                <button>Atualizar</button>
+            </form>
+        </div>
+    </div>
+    <script src='static/js/configuracao_cobranca.js'></script>
+</body>
+</html>

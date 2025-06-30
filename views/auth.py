@@ -24,7 +24,7 @@ def autenticar():
             return redirect(url_for('index'))
         else:
             mensagem = 'Usuário ou senha inválidos'
-            redirect(url_for('login'))
+            return redirect(url_for('login'))
         
     else: 
         mensagem = 'Usuario ou sehna inválidos'

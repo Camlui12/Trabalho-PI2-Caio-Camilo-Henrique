@@ -26,3 +26,7 @@ def mensalistas():
 @app.route('/mensalistas-op')
 def mensalistasOp():
     return render_template('mensalistas_op.html')
+
+@app.route('/configuracao-cobranca')
+def configuracaoCobranca():
+    return render_template('configuracao_cobranca.html')
