@@ -19,10 +19,6 @@ def index():
 def registroEntrada():
     return render_template('registro_entrada.html')
 
-@app.route('/registro-saida')
-def registroSaida():
-    return render_template ('registro_saida.html')
-
 @app.route('/mensalistas')
 def mensalistas():
     return render_template('mensalistas.html')
