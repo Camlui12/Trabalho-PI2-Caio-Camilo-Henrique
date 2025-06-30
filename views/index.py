@@ -15,7 +15,6 @@ def index():
             return render_template('index_op.html', usuario = nome)
     return redirect(url_for('login'))
 
-
 @app.route('/registro-entrada')
 def registroEntrada():
     return render_template('registro_entrada.html')
