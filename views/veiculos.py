@@ -1,6 +1,6 @@
-from app import app
+from app import app, db
 from flask import render_template, request, redirect, url_for, session
-from models import Veiculo, Estadia
+from models import Veiculo, Estadia, Tarifa
 from datetime import datetime, timezone
 
 
@@ -13,16 +13,18 @@ def confirmarEntrada():#não consegui testar pq n tem nd no banco de dados sobre
         if estadia_ativa:
             return redirect(url_for('index'))
         
-        #tarifa_id
+        tarifa = Tarifa.query.order_by(Tarifa.dataVigencia.desc()).first()
+        
+        tarifa_id = tarifa.id if tarifa else None
 
         # Cria a nova estadia
-        #nova_estadia = Estadia(entrada=datetime.now(timezone.utc),veiculo=placa,tarifa=tarifa_id)
-        #db.session.add(nova_estadia)
-        #db.session.commit()
+        nova_estadia = Estadia(entrada=datetime.now(timezone.utc),veiculo=placa,tarifa=tarifa_id)
+        db.session.add(nova_estadia)
+        db.session.commit()
 
         return redirect(url_for('index'))  # Sucesso
     else:
-        return render_template('cadastro_veiculo.html')#não sei se aqui é melhor render ou redirect
+        return render_template('cadastro_veiculo.html', placa=placa)#não sei se aqui é melhor render ou redirect
     
 
 @app.route('/cadastrarVeiculo', methods=['POST'])
@@ -33,11 +35,9 @@ def cadastrarVeiculo():
     tipo = request.form['tipo']
 
     newVeiculo = Veiculo(placa = placa, modelo = modelo, cor = cor, tipo = tipo)
-    #db.session.add(newVeiculo)
-    #db.session.comit()
+    db.session.add(newVeiculo)
+    db.session.commit()
+    
+    print(f"Veículo {placa} cadastrado com sucesso!")
 
-    return redirect(url_for('confirmarEntrada', placa = placa))
-
-        
-        
-       
+    return redirect(url_for('registroEntrada'))
