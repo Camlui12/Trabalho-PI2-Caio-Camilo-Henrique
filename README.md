@@ -473,9 +473,10 @@ escrever aqui
  
 #### 13.1.2. Resultados
 ##### Teste 1
+<img src="static/images/k6 report_servico1.png" alt="teste1V1" width="1000px"/>
 
 ##### Teste 2
-
+<img src="static/images/k6 report2.png" alt="teste2V1" width="1000px"/>
 #### 13.1.3. Hipóteses de Potenciais Gargalos do Sistema
 escrever aqui
 
