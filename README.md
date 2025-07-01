@@ -425,10 +425,56 @@ escrever aqui
 # 13. Testes de carga
 ### 13.1. Primeira Fase de Testes
 #### 13.1.1. Medições
-escrever aqui
 
+##### Teste 1
+- Registro de Entrada de Veículo
+- O serviço realiza principalmente operações de Leitura e Inserção.
+    - Leitura: Ao tentar registrar uma entrada (/confirmarEntrada), o sistema primeiro realiza uma consulta no banco de dados para verificar se a placa       fornecida já pertence a um veículo cadastrado.
+    - Inserção:
+        1. Se o veículo não existe, os dados do novo veículo (placa, modelo, cor, tipo) são inseridos na tabela de veículos através do endpoint /cadastrarVeiculo.
+        2. Uma vez que o veículo existe (seja por cadastro prévio ou pelo fluxo acima), uma nova linha é inserida na tabela de movimentações para registrar a data e hora da entrada, associada ao veículo correspondente.
+
+- Arquivos envolvidos:
+    - app.py
+    - models.py
+    - templates/registrar_entrada.html
+    - templates/cadastrar_veiculo.html
+    - templates/confirmar_entrada.html
+  
+- Arquivos com o código fonte de medição do SLA:
+    - medicoes-sla/teste_sla_servico1.js
+- Data da medição: 30/06/2025
+- Descrição das configurações: Macbook Pro M3 macOS Sequoia 15.4.1 8gb
+- 1 usuário virtual realizando 100 operações
+- LEVANTAMENTO DE HIPÓTESES:
+    - A análise dos resultados do teste aponta para um gargalo de desempenho claro e significativo, evidenciado pela grande disparidade de performance entre as operações: enquanto o cadastro de um novo veículo via POST /cadastrarVeiculo é extremamente rápido, com uma média de 5.4ms, o serviço principal de POST /confirmarEntrada apresenta uma performance muito inferior e inconsistente, com uma média de 177ms e picos que chegam a 533ms. Como essa lentidão foi observada com a carga de um único usuário, descarta-se a concorrência como causa, apontando a hipótese principal para a operação de escrita (INSERT) na tabela de relacionamento Movimentacao, que ocorre a cada confirmação de entrada. O gargalo é provavelmente causado pela falta de um índice de banco de dados otimizado para esta tabela, especialmente na coluna de chave estrangeira veiculo_id, forçando o sistema a realizar um trabalho de reorganização ineficiente a cada nova inserção. Conclui-se, portanto, que o sistema sofre de um gargalo de escrita que já se mostra severo e que se tornaria um ponto de falha crítico sob carga, sendo a implementação de índices na tabela Movimentacao a otimização fundamental para garantir a escalabilidade e a performance do serviço.
+    
+##### Teste 2
+- Registro de Saída de Veículo
+- O serviço realiza principalmente operações de Leitura e Atualização.
+    1. Leitura: Ao acessar /registro-saida, o sistema faz uma leitura para renderizar a página HTML.
+    2. Na rota /confirmarSaida, o sistema precisa primeiro ler o banco de dados para encontrar o veículo pela placa fornecida e, em seguida, localizar a sua movimentação de entrada que ainda está em aberto (ou seja, sem data de saída).
+    - Atualização:
+        - Após encontrar o registro de entrada em aberto, a principal ação do serviço é atualizar essa linha na tabela de movimentações. Isso envolve preencher a coluna data_saida com o horário atual e a coluna valor_pago com o custo calculado.
+
+- Arquivos envolvidos:
+    - app.py
+    - models.py
+    - templates/registro-saida.html
+    - templates/confirmar_saida.html
+  
+- Arquivos com o código fonte de medição do SLA:
+    - medicoes-sla/teste_sla_servico2.js
+- Data da medição: 30/06/2025
+- Descrição das configurações: Macbook Pro M3 macOS Sequoia 15.4.1 8gb
+- 5 usuários virtuais realizando operações simultâneamente
+- LEVANTAMENTO DE HIPÓTESES:
+    - A análise dos resultados do segundo teste, que simulou uma carga de 5 usuários simultâneos por um minuto no serviço de "Registro de Saída", revela um severo gargalo de desempenho na operação principal. Enquanto o acesso à página de registro (GET /registro-saida) é extremamente rápido, com uma média de 6.18ms, a submissão da saída via POST /confirmarSaida apresenta uma latência crítica, com tempo médio de resposta de 937.66ms e picos que chegam a 1.2 segundos. A hipótese principal para esta lentidão é a combinação de uma consulta e uma atualização no banco de dados (SELECT e UPDATE na tabela Movimentacao) sob concorrência. Com múltiplos usuários tentando encontrar e atualizar registros simultaneamente, o sistema provavelmente enfrenta contenção de recursos, como bloqueios de linha (row locks) no banco de dados, forçando as operações a esperarem em fila. Adicionalmente, a consulta para encontrar a movimentação em aberto de um veículo pode ser ineficiente se não houver um índice otimizado para essa busca. Conclui-se que o serviço de saída não escala bem, pois uma carga moderada de 5 usuários já eleva o tempo de resposta a níveis inaceitáveis, indicando que a otimização da consulta e da transação de atualização na rota /confirmarSaida é fundamental.
+ 
 #### 13.1.2. Resultados
-escrever aqui
+##### Teste 1
+
+##### Teste 2
 
 #### 13.1.3. Hipóteses de Potenciais Gargalos do Sistema
 escrever aqui
