@@ -1,28 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
-    <title>Cadastrar Veículo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form2.css') }}">
+    <title>Configurações de Cobrança</title>
 </head>
 <body>
     <div class="container">
-        <div class="form">
-            <h2>Defina novas configurações de cobrança</h2>
-            <form action="{{ url_for('atualizarTarifa') }}" method="post">
-                <div class="form-group">
-                    <label for="tarifa">Tarifa:</label>
-                    <input type="text" id="tarifa" name="tarifa" class="valor" placeholder="R$ 0,00" required>
-                    <label for="tolerancia">Tolerância (min):</label>
-                    <input type="text" id="tolerancia" name="tolerancia" required>
-                    <label for="teto">Teto Diário:</label>
-                    <input type="text" id="teto" name="teto" class="valor" placeholder="R$ 0,00" required>
+        <div class="dual-box-wrapper">
+
+            <div class="content-box">
+                <h2>Configurações atuais</h2>
+                <div class="info-display">
+                    <span class="label">Tarifa</span>
+                    <span class="value">R$ 10,00</span>
                 </div>
-                <button>Atualizar</button>
-            </form>
+                <div class="info-display">
+                    <span class="label">Tolerância</span>
+                    <span class="value">10 minutos</span>
+                </div>
+                <div class="info-display">
+                    <span class="label">Teto Diário</span>
+                    <span class="value">R$ 120,00</span>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <form action="{{ url_for('atualizarTarifa') }}" method="post">
+                    <h2>Defina Novas Configurações</h2>
+
+                    <div class="form-group">
+                        <label for="tarifa">Tarifa por Período:</label>
+                        <input type="text" id="tarifa" name="tarifa" class="valor" placeholder="R$ 0,00" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tolerancia">Tolerância (minutos):</label>
+                        <input type="text" id="tolerancia" name="tolerancia" placeholder="Ex: 15" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="teto">Teto Diário:</label>
+                        <input type="text" id="teto" name="teto" class="valor" placeholder="R$ 0,00" required>
+                    </div>
+                    
+                    <div class="actions">
+                        <button type="submit">Atualizar</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
-    <script src='static/js/configuracao_cobranca.js'></script>
+    <script src="{{ url_for('static', filename='js/configuracao_cobranca.js') }}"></script>
 </body>
 </html>

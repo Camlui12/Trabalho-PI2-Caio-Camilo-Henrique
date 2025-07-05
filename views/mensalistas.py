@@ -1,6 +1,7 @@
 from app import app, db
 from flask import render_template, request, redirect, url_for, session
 from models import ClienteMensal,Veiculo
+from views import core
 
 @app.route('/novo-mensalista')
 def novoMensalista(): 
@@ -34,7 +35,7 @@ def confirmarCliente():
         db.session.add(novoCliente)
         veiculo.cliente_mensal_id = id
         db.session.commit()
-        return redirect(url_for('index'))
+        return redirect(url_for('confirmacao'))
     else:
         return render_template('cadastro_veiculo.html', placa = placa)
     

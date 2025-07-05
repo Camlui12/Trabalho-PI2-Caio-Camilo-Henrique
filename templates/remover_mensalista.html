@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tabela.css') }}">
+
+    <title>Lista de Clientes e Veículos</title>
+</head>
+<body>
+    <div class="container">
+        <div class="list-container">
+            <h2>Lista de Clientes</h2>
+
+            <form>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Selecionar</th>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>Veículo</th>
+                                <th>Placa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="select-cell">
+                                    <input type="checkbox" name="selecionados" value="1">
+                                </td>
+                                <td>João da Silva</td>
+                                <td>111.222.333-44</td>
+                                <td>Honda Civic</td>
+                                <td>ABC-1234</td>
+                            </tr>
+                            <tr>
+                                <td class="select-cell">
+                                    <input type="checkbox" name="selecionados" value="2">
+                                </td>
+                                <td>Maria Oliveira</td>
+                                <td>555.666.777-88</td>
+                                <td>Toyota Corolla</td>
+                                <td>DEF-5678</td>
+                            </tr>
+                            <tr>
+                                <td class="select-cell">
+                                    <input type="checkbox" name="selecionados" value="3">
+                                </td>
+                                <td>Carlos Pereira</td>
+                                <td>999.888.777-66</td>
+                                <td>Ford Ka</td>
+                                <td>GHI-9012</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="actions">
+                    <button type="submit">Confirmar Selecionados</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

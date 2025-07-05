@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucesso!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/confirmacao.css') }}">
+</head>
+<body>
+
+    <div class="confirmation-page">
+        
+        <div class="logo-area">
+            <img src="static\images\LogoEXCELENTE.png" alt="Logo da Empresa">
+        </div>
+
+        <div class="success-box">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+            <h1>Operação Concluída!</h1>
+        </div>
+
+        <div class="redirect-message">
+            <p>Você será redirecionado em <span id="countdown">5</span> segundos...</p>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/confirmacao.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+/* --- ESTILOS GLOBAIS E FONTE --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #3a6ea5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- LAYOUT PRINCIPAL --- */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.content-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 420px;
+}
+
+.content-box h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #333;
+    font-weight: 600;
+}
+
+/* --- ESTRUTURA PARA DUAS CAIXAS --- */
+.dual-box-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    align-items: stretch; /* Garante que as caixas tenham a mesma altura */
+}
+
+/* --- ESTILOS DA CAIXA DE INFORMAÇÃO (ESQUERDA) --- */
+.info-display {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 15px; /* ALTERAÇÃO: Reduzido de 20px para deixar mais compacto */
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+}
+
+.info-display + .info-display {
+    margin-top: 12px; /* ALTERAÇÃO: Reduzido de 15px */
+}
+
+.info-display .label {
+    display: block;
+    font-size: 15px; /* ALTERAÇÃO: Reduzido de 16px */
+    color: #6c757d;
+    margin-bottom: 4px; /* ALTERAÇÃO: Reduzido de 8px */
+}
+
+.info-display .value {
+    display: block;
+    font-size: 26px; /* ALTERAÇÃO: Reduzido de 28px */
+    font-weight: 700;
+    color: #3a6ea5;
+}
+
+/* --- ESTILOS DE FORMULÁRIO (CAIXA DA DIREITA) --- */
+
+/* ALTERAÇÃO: Adicionamos display: flex ao formulário */
+.content-box form {
+    display: flex;
+    flex-direction: column; /* Organiza os filhos do form em coluna */
+    height: 100%; /* Faz o form ocupar toda a altura da .content-box */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: #3a6ea5;
+    box-shadow: 0 0 0 3px rgba(58, 110, 165, 0.2);
+}
+
+/* --- BOTÃO DE AÇÃO --- */
+.actions {
+    margin-top: auto; /* ALTERAÇÃO: Esta é a mágica! Empurra o botão para a base */
+}
+
+.actions button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #3a6ea5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.actions button:hover {
+    background-color: #0056b3;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 820px) {
+    .dual-box-wrapper {
+        flex-direction: column;
+    }
+}

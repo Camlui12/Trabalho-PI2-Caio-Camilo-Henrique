@@ -2,6 +2,7 @@ from app import app, db
 from flask import render_template, request, redirect, url_for, session
 from models import Tarifa
 from datetime import date
+from views import core
 
 
 @app.route('/atualizartarifa', methods = ['POST'])
@@ -23,4 +24,4 @@ def atualizarTarifa():
     db.session.add(nova_tarifa)
     db.session.commit()
     print(f'tarifa de valor {tarifa_float:.2f} adicionada')
-    return redirect(url_for('index'))
+    return redirect(url_for('confirmacao'))

@@ -2,10 +2,11 @@ from app import app, db
 from flask import render_template, request, redirect, url_for, session
 from models import Veiculo, Estadia, Tarifa
 from datetime import datetime, timezone, date
+from views import core
 
 
 @app.route('/confirmarEntrada', methods=['GET', 'POST'])
-def confirmarEntrada():#não consegui testar pq n tem nd no banco de dados sobre as placas eu acho    
+def confirmarEntrada():    
     carro = Veiculo.query.filter_by(placa=request.form.get('placa')).first()
     placa = request.form.get('placa')
     if carro:
@@ -24,7 +25,7 @@ def confirmarEntrada():#não consegui testar pq n tem nd no banco de dados sobre
         db.session.add(nova_estadia)
         db.session.commit()
 
-        return redirect(url_for('index'))  # Sucesso
+        return redirect(url_for('confirmacao'))  # Sucesso
     else:
         return render_template('cadastro_veiculo.html', placa=placa)#não sei se aqui é melhor render ou redirect
     
@@ -93,6 +94,6 @@ def confirmarSaida():
         estadia.valor = valor_final
         db.session.commit()
         print(f"Saída registrada para o veículo {placa}.")
-        return redirect(url_for('index'))
+        return redirect(url_for('confirmacao'))
     else:
         return render_template('registro_saida.html', error="Veículo não encontrado ou já saiu.")

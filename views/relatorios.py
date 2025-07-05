@@ -2,6 +2,7 @@ from flask import render_template, request, redirect, url_for, session
 from app import app, db 
 from models import *
 from datetime import datetime, timezone
+from views import core
 
 @app.route('/relatorios')
 def relatorios():

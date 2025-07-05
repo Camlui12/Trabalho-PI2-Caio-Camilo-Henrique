@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form2.css') }}">
+    <title>Atualizar Tarifa</title>
+</head>
+<body>
+    <div class="container">
+        <div class="dual-box-wrapper">
+
+            <div class="content-box">
+                <h2>Valor Atual</h2>
+                <div class="info-display">
+                    <span class="value">R$ 200,00</span>
+                </div>
+            </div>
+
+            <div class="content-box">
+                <form>
+                    <h2>Definir Novo Valor</h2>
+                    <div class="form-group">
+                        <label for="novo_valor_tarifa">Nova Tarifa:</label>
+                        <input type="text" id="novo_valor_tarifa" class="valor" name="novo_valor_tarifa" placeholder="R$ 0,00" required>
+                    </div>
+                    <div class="actions">
+                        <button type="submit">Atualizar Valor</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <script src='static/js/configuracao_cobranca.js'></script>
+</body>
+</html>
