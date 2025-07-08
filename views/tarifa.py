@@ -17,8 +17,12 @@ def atualizarTarifa():
     teto_ponto = teto_limpo.replace(',', '.')
     teto_float = float(teto_ponto)
 
+    
     lastTarifa = Tarifa.query.order_by(Tarifa.dataVigencia.desc()).first()
-    id = lastTarifa.id + 1
+    if lastTarifa:
+        id = lastTarifa.id + 1
+    else:
+        id = 1
 
     nova_tarifa = Tarifa(id = id, valorHora = tarifa_float, tolerancia = tolerancia, tetoDiario = teto_float, dataVigencia = date.today())
     db.session.add(nova_tarifa)

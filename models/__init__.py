@@ -3,7 +3,7 @@ from .user import Usuario, Admin, Operador
 from .veiculo import Veiculo
 from .relatorio import Relatorio
 from .estadia import Estadia
-from .clienteMensal import ClienteMensal
+from .clienteMensal import ClienteMensal, PlanoMensal
 from .tarifa import Tarifa
 
 
@@ -18,5 +18,6 @@ __all__ = [
     'Relatorio',
     'Estadia',
     'ClienteMensal',
-    'Tarifa'
+    'Tarifa',
+    'PlanoMensal'
 ]
