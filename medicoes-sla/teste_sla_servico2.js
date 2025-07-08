@@ -9,15 +9,21 @@ export const options = {
 
 // Lista de placas (adicione/remova conforme seu cenário real)
 const placas = [
-    "CXZ4805","KWR6136","ZDB9490","QLK7375","DZD4958","LNF4833",
-    "WVA4105","VSC8202","MWH5022","VSM2823","EUK1004","TYR5333",
-    "DBY5288","ENH5140","MDV0609","BQL9266","DGF0665","TOC6030",
-    "DKT1978","JLE5001","FPX4145","BJI9047","BAP7227","ETR7065",
-    "PLX4876","HHY3796","HRP5411","XTG1373","WGC2951","EIQ3192",
-    "HVV4943","YIT0345","LFS6439","GKR4391","GSB7108","DYD9347",
-    "QUR1336","VUE1283","NKJ3404","AYC0571","AGX2071","WWR1375",
-    "WFR2285","OZX8752","LVM6969","RXP9102","XTH2817","PLK9017",
-    "GLF5636","HND2723","RVT6410","REI5753","EFQ1409"
+    "ADN8231","AOD5371","AXX4682","AZV0209","BAJ0227","BCB4703","BHP9514",
+    "BTT1674","CAX7027","CFH0392","CJR6472","CLG7034","DBQ7353","DED7144",
+    "DJX2944","DLC9943","EBR5975","EKP9908","EMU3584","ENJ1394","EPZ1584",
+    "ERK2345","ESA9035","FBR4057","FFM5013","FXD7718","FXS2177","GBE3943",
+    "GHG8655","GKC5070","GOD0724","HBW4884","HCJ6505","HPE8830","HTJ6173",
+    "IGO0336","ITA0886","IVF4131","IXX7485","JER5510","JQW4918","KGU8614",
+    "KMY6419","KSN2113","KXC6618","KXO2639","KYB9363","KZI3791","LHT4037",
+    "LIN6439","LPS5404","LWW7565","MDZ7490","MGU2837","MRI4233","MXF6111",
+    "NDT0385","NGX4140","NQR9600","OHE7367","OXS4906","PAM9863","PTB2893",
+    "PTZ3783","PUI2092","QFQ5492","QII6446","QNG5865","QOF8081","RCP3445",
+    "RLZ8396","RSL9727","RVE7434","SCP4625","SLR2472","SQS5140","TCJ5423",
+    "TLL4868","TMU8666","TNN3016","URD2748","UST6559","UUE1335","UUM8207",
+    "VEM0647","VIT9073","WVI4143","XCA2337","XCY7831","XKQ9190","XLD0919",
+    "YAM4918","YAZ4441","YBN8190","YGB5509","YKT3562","YLZ5936","YXU3384",
+    "ZEF4061","ZNR1469"
 ];
 
 // Função para selecionar placa aleatória
@@ -42,7 +48,7 @@ export default function () {
     const postRes = http.post('http://127.0.0.1:5000/confirmarSaida', payload, { headers });
     check(postRes, {
         'Placa enviada (status 200 ou 302)': (r) => r.status === 200 || r.status === 302,
-        'Resposta contem placa':    (r) => r.body && r.body.includes(placa),
+        'Resposta contem placa': (r) => r.body && r.body.includes(placa),
     });
 
     sleep(Math.random() * 2); // Simula usuário lendo a tela/botão "voltar"
