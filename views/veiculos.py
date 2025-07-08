@@ -61,13 +61,13 @@ def confirmarSaida():
     placa = request.form['placa']
     print(f"Placa recebida: {placa}")
 
-    estadia = Estadia.query.options(joinedload(Estadia.tarifa)).filter_by(veiculo=placa, saida=None).first()
+    estadia = Estadia.query.options(joinedload(Estadia.tarifa_rel)).filter_by(veiculo=placa, saida=None).first()
     
     if not estadia or not estadia.tarifa:
         print(f"Estadia não encontrada ou já finalizada para o veículo {placa}.")
         return render_template('registro_saida.html', error="Veículo não encontrado ou já saiu.")
     
-    tarifa = estadia.tarifa if estadia else None
+    tarifa = estadia.tarifa_rel if estadia else None
     agora_utc = datetime.now(timezone.utc)
     valor_final = 0.0
 
