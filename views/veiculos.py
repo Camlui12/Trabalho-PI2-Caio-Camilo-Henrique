@@ -3,7 +3,7 @@ from flask import render_template, request, redirect, url_for, session
 from models import Veiculo, Estadia, Tarifa
 from datetime import datetime, timezone, date
 from views import core
-from sqlalchemy import joinedload
+from sqlalchemy.orm import joinedload
 
 
 @app.route('/confirmarEntrada', methods=['GET', 'POST'])
