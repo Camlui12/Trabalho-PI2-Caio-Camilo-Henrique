@@ -29,3 +29,10 @@ def autenticar():
     else: 
         mensagem = 'Usuario ou sehna inválidos'
         return redirect(url_for('login'))
+    
+@app.route('/logout')
+def logout():
+    session.pop('usuario_logado', None)
+    session.pop('tipo_usuario', None)
+    
+    return redirect(url_for('login'))
