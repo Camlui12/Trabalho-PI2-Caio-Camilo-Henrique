@@ -96,4 +96,4 @@ def confirmarSaida():
         estadia.valor = round(valor_final, 2)
         db.session.commit()
         print(f"Saída registrada para o veículo {placa}.")
-        return redirect(url_for('confirmacao'), valor_cobrado = f"{valor_final:.2f}")
+        return redirect(url_for('confirmacao'))
