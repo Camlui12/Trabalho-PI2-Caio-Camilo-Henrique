@@ -11,7 +11,7 @@ class Estadia(db.Model):
     
     # Foreign keys
     veiculo = db.Column(db.String(7), db.ForeignKey('veiculo.placa'), nullable=False, index=True)
-    tarifa_id = db.Column(db.Integer, db.ForeignKey('tarifa.id'), nullable=False)
+    tarifa = db.Column(db.Integer, db.ForeignKey('tarifa.id'), nullable=False)
     
     # Relacionamentos
     tarifa_rel = db.relationship('Tarifa', backref='estadias', uselist=False)
