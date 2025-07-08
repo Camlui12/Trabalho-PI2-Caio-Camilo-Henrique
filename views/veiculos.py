@@ -3,6 +3,7 @@ from flask import render_template, request, redirect, url_for, session
 from models import Veiculo, Estadia, Tarifa
 from datetime import datetime, timezone, date
 from views import core
+from sqlalchemy import joinedload
 
 
 @app.route('/confirmarEntrada', methods=['GET', 'POST'])
@@ -18,7 +19,13 @@ def confirmarEntrada():
         
         tarifa_id = tarifa.id if tarifa else None
         
-        # Pegando a data de hoje
+        # Verifica se há vagas disponíveis
+        vagas_ocupadas = Estadia.query.filter(Estadia.saida == None).count()
+        vagas_totais = 100  # Defina o número total de vagas conforme sua lógica
+        vagas_disponiveis = vagas_totais - vagas_ocupadas
+        
+        if vagas_disponiveis <= 0:
+            return render_template('registro_entrada.html', error="Não há vagas disponíveis.")
 
         # Cria a nova estadia
         nova_estadia = Estadia(entrada=datetime.now(timezone.utc),veiculo=placa,tarifa=tarifa_id)
@@ -27,7 +34,7 @@ def confirmarEntrada():
 
         return redirect(url_for('confirmacao'))  # Sucesso
     else:
-        return render_template('cadastro_veiculo.html', placa=placa)#não sei se aqui é melhor render ou redirect
+        return render_template('cadastro_veiculo.html', placa=placa) #não sei se aqui é melhor render ou redirect
     
 
 @app.route('/cadastrarVeiculo', methods=['POST'])
@@ -54,9 +61,15 @@ def confirmarSaida():
     placa = request.form['placa']
     print(f"Placa recebida: {placa}")
 
-    estadia = Estadia.query.filter_by(veiculo=placa, saida=None).first()
-    tarifa_id = estadia.tarifa if estadia else None
-    tarifa = Tarifa.query.get(tarifa_id) if tarifa_id else None
+    estadia = Estadia.query.options(joinedload(Estadia.tarifa)).filter_by(veiculo=placa, saida=None).first()
+    
+    if not estadia or not estadia.tarifa:
+        print(f"Estadia não encontrada ou já finalizada para o veículo {placa}.")
+        return render_template('registro_saida.html', error="Veículo não encontrado ou já saiu.")
+    
+    tarifa = estadia.tarifa if estadia else None
+    agora_utc = datetime.now(timezone.utc)
+    valor_final = 0.0
 
     # Corrige o timezone da entrada
     if estadia and estadia.entrada.tzinfo is None:
@@ -66,34 +79,21 @@ def confirmarSaida():
     else:
         entrada = None
 
-    periodo = datetime.now(timezone.utc) - entrada if entrada else None
+    periodo = agora_utc - entrada if entrada else None
     
     # Verificando se o período de permanência é maior que a tolerância
     if tarifa and periodo:
-        tolerancia = tarifa.tolerancia
-        if periodo.total_seconds() / 60 > tolerancia:
+        if periodo.total_seconds() / 60 > tarifa.tolerancia:
             # Calcula o valor a pagar
-            horas = periodo.total_seconds() / 3600
-            valor = tarifa.valorHora * horas
+            horas = max(1, periodo.total_seconds() / 3600)
+            valor_calculado = tarifa.valorHora * horas
             
-            # Verifica se o valor ultrapassa o teto diário
-            if valor > tarifa.tetoDiario:
-                valor = tarifa.tetoDiario
-            if valor < tarifa.valorHora:
-                valor = tarifa.valorHora
-                
-            valor_final = round(valor, 2)
-            
-            print(f"Valor a pagar: R$ {valor_final}")
-        else:
-            valor_final = round(0,2)
-            print("Período dentro da tolerância, sem cobrança.")
+            valor_final = min(valor_calculado, tarifa.tetoDiario)
+            print(f"Período excedido. Valor a pagar: R$ {valor_final:.2f}")
     
     if estadia:
-        estadia.saida = datetime.now(timezone.utc)
-        estadia.valor = valor_final
+        estadia.saida = agora_utc
+        estadia.valor = round(valor_final, 2)
         db.session.commit()
         print(f"Saída registrada para o veículo {placa}.")
-        return redirect(url_for('confirmacao'))
-    else:
-        return render_template('registro_saida.html', error="Veículo não encontrado ou já saiu.")
+        return redirect(url_for('confirmacao'), valor_cobrado = f"{valor_final:.2f}")

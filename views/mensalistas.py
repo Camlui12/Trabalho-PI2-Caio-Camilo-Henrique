@@ -1,5 +1,5 @@
-from app import app, db
-from flask import render_template, request, redirect, url_for, session
+from app import app, db, cache
+from flask import render_template, request, redirect, url_for, session, jsonify
 from models import ClienteMensal,Veiculo
 from views import core
 

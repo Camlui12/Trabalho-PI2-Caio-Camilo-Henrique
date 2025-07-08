@@ -10,11 +10,7 @@ def index():
         user = Usuario.query.filter_by(login = login).first()
         nome = user.nome
         estadias = Estadia.query.all()
-        vagas_ocupadas = 0
-        for e in estadias:
-            if e.saida is None:
-                vagas_ocupadas += 1
-                
+        vagas_ocupadas = Estadia.query.filter(Estadia.saida == None).count()
         vagas_totais = 100
         vagas_disponiveis = vagas_totais - vagas_ocupadas
         
