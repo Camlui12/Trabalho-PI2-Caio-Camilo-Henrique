@@ -482,13 +482,18 @@ escrever aqui
 
 ### 13.2. Segunda Fase de Testes
 #### 13.2.1. Otimização
-escrever aqui
+Foram criados novos índices para as colunas consultadas nos cenários de teste e a otimização do código na rota 'cadastrarVeiculo' para melhorar o tempo de insert no BD. Acreditamos que essas mudanças melhorariam principalmente o tempo de insert e update no banco de dados pois isso era o que estava sendo mais custoso pelas nossas hipóteses. Os testes foram realizados da mesma maneira e ambiente para que haja uma comparação justa.
 
 #### 13.2.2. Medições `(Refaça os Testes de Carga após otimização)`
 escrever aqui
 
 #### 13.2.3. Resultados Comparativos `(Gráficos e Interpretação)`
-escrever aqui e imagem aqui
+##### teste 1.2
+<img src="static/images/k6 report1_2.png" alt="teste1V2" width="1000px"/>
+
+
+##### teste 2.2
+<img src="static/images/k6 report2_2.png" alt="teste2V2" width="1000px"/>
 
 #### 13.2.4. Conclusão dos Testes
 escrever aqui
