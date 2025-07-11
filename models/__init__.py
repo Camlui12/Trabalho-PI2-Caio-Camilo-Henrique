@@ -5,7 +5,8 @@ from .relatorio import Relatorio
 from .estadia import Estadia
 from .clienteMensal import ClienteMensal, PlanoMensal
 from .tarifa import Tarifa
-
+from .LogPedidoRelatorio import LogPedidoRelatorio
+from .metricasUso import MetricasUso
 
 __all__ = [
     'TipoUsuario',
@@ -19,5 +20,7 @@ __all__ = [
     'Estadia',
     'ClienteMensal',
     'Tarifa',
-    'PlanoMensal'
+    'PlanoMensal',
+    'LogPedidoRelatorio',
+    'MetricasUso'
 ]
