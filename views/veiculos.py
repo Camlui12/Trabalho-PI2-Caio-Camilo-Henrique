@@ -13,7 +13,7 @@ def confirmarEntrada():
     if carro:
         estadia_ativa = Estadia.query.filter_by(veiculo=placa, saida=None).first()
         if estadia_ativa:
-            return redirect(url_for('index'))
+            return redirect(url_for('erro', mensagem_de_erro = 'Veículo já possui estadia ativa'))
         
         tarifa = Tarifa.query.order_by(Tarifa.dataVigencia.desc()).first()
         
@@ -25,14 +25,14 @@ def confirmarEntrada():
         vagas_disponiveis = vagas_totais - vagas_ocupadas
         
         if vagas_disponiveis <= 0:
-            return render_template('registro_entrada.html', error="Não há vagas disponíveis.")
+            return redirect(url_for('erro', mensagem_de_erro = 'Não há vagas disponíveis.'))
 
         # Cria a nova estadia
         nova_estadia = Estadia(entrada=datetime.now(timezone.utc),veiculo=placa,tarifa=tarifa_id)
         db.session.add(nova_estadia)
         db.session.commit()
 
-        return redirect(url_for('confirmacao'))  # Sucesso
+        return redirect(url_for('confirmacao', mensagem='Entrada confirmada.'))  # Sucesso
     else:
         return render_template('cadastro_veiculo.html', placa=placa) #não sei se aqui é melhor render ou redirect
     
@@ -65,7 +65,7 @@ def confirmarSaida():
     
     if not estadia or not estadia.tarifa:
         print(f"Estadia não encontrada ou já finalizada para o veículo {placa}.")
-        return render_template('registro_saida.html', error="Veículo não encontrado ou já saiu.")
+        return redirect(url_for('erro', mensagem_de_erro = 'Estadia não encontrada ou já finalizada para o veículo.'))
     
     tarifa = estadia.tarifa_rel if estadia else None
     agora_utc = datetime.now(timezone.utc)
@@ -96,4 +96,5 @@ def confirmarSaida():
         estadia.valor = round(valor_final, 2)
         db.session.commit()
         print(f"Saída registrada para o veículo {placa}.")
-        return redirect(url_for('confirmacao'))
+        valor_formatado = f'R${valor_final:.2f}'.replace('.', ',')
+        return render_template('confirmacaoSaida.html', valor_formatado = valor_formatado)

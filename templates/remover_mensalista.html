@@ -21,44 +21,32 @@
                                 <th>Selecionar</th>
                                 <th>Nome</th>
                                 <th>CPF</th>
-                                <th>Veículo</th>
-                                <th>Placa</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="select-cell">
-                                    <input type="checkbox" name="selecionados" value="1">
-                                </td>
-                                <td>João da Silva</td>
-                                <td>111.222.333-44</td>
-                                <td>Honda Civic</td>
-                                <td>ABC-1234</td>
-                            </tr>
-                            <tr>
-                                <td class="select-cell">
-                                    <input type="checkbox" name="selecionados" value="2">
-                                </td>
-                                <td>Maria Oliveira</td>
-                                <td>555.666.777-88</td>
-                                <td>Toyota Corolla</td>
-                                <td>DEF-5678</td>
-                            </tr>
-                            <tr>
-                                <td class="select-cell">
-                                    <input type="checkbox" name="selecionados" value="3">
-                                </td>
-                                <td>Carlos Pereira</td>
-                                <td>999.888.777-66</td>
-                                <td>Ford Ka</td>
-                                <td>GHI-9012</td>
-                            </tr>
+                                {% for cliente in clientes %}
+                                <tr>
+                                    <td class="select-cell">
+                                        <input type="checkbox" name="selecionados" value="{{ cliente.id }}">
+                                    </td>
+                                    <td>{{ cliente.nome }}</td>
+                                    <td>{{ cliente.cpf }}</td>
+                                </tr>
+                                
+                                {% else %}
+                                <tr>
+                                    <td colspan="5" style="text-align: center; padding: 20px;">
+                                        Nenhum cliente mensal cadastrado no momento.
+                                    </td>
+                                </tr>
+                                {% endfor %}
+
                         </tbody>
                     </table>
                 </div>
 
                 <div class="actions">
-                    <button type="submit">Confirmar Selecionados</button>
+                    <button type="submit">Remover selecionados</button>
                 </div>
             </form>
         </div>

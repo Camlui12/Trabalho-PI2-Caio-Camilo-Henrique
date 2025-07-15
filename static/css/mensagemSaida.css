@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Um gradiente sutil para um fundo menos estático */
+    background: linear-gradient(135deg, #3a6ea5, #2c5c8e);
+    color: #333;
+    /* Melhora a renderização da fonte */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.form {
+    background-color: #fff;
+    padding: 30px; /* Mais respiro interno */
+    border-radius: 12px; /* Bordas mais arredondadas */
+    /* Sombra mais suave para um efeito de profundidade melhor */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 350px; /* Usar max-width para responsividade */
+    text-align: center; /* Centraliza todo o conteúdo do form */
+}
+
+.form h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Estilizando a div que mostra o valor */
+.form-group {
+    font-size: 18px;
+    color: #555;
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3a6ea5;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out; /* Transição mais suave */
+}
+
+.form button:hover {
+    background-color: #2c5c8e; /* Um tom de azul mais escuro no hover */
+    transform: translateY(-2px); /* Efeito de elevação sutil */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form button:active {
+    transform: translateY(0); /* Botão volta ao normal ao ser clicado */
+    background-color: #254e7a;
+}

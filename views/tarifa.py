@@ -28,4 +28,4 @@ def atualizarTarifa():
     db.session.add(nova_tarifa)
     db.session.commit()
     print(f'tarifa de valor {tarifa_float:.2f} adicionada')
-    return redirect(url_for('confirmacao'))
+    return redirect(url_for('confirmacao', mensagem='Tarifa atualizada.'))

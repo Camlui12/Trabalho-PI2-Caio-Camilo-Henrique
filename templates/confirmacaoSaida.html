@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mensagemSaida.css') }}">
+    <title>Registro de Saída</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <h2>Registro de Saída</h2>
+            <form action="{{ url_for('confirmacao') }}">
+                <div class="form-group">
+                    Valor da estadia: {{ valor_formatado }}
+                </div>
+                <button>Confirmar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

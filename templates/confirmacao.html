@@ -20,10 +20,11 @@
                 <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
             </svg>
             <h1>Operação Concluída!</h1>
+            <p>{{ mensagem | default('Solicitação realizada com sucesso.', true) }}</p>
         </div>
 
         <div class="redirect-message">
-            <p>Você será redirecionado em <span id="countdown">5</span> segundos...</p>
+            <p>Você será redirecionado em <span id="countdown">3</span> segundos...</p>
         </div>
 
     </div>

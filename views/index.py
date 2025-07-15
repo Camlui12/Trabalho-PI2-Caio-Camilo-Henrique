@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, session
 from app import app
-from models import Usuario, Estadia
+from models import Usuario, Estadia, Tarifa
 
 @app.route('/')
 def index():
@@ -34,4 +34,7 @@ def mensalistasOp():
 
 @app.route('/configuracao-cobranca')
 def configuracaoCobranca():
-    return render_template('configuracao_cobranca.html')
+    lastTarifa = Tarifa.query.order_by(Tarifa.dataVigencia.desc()).first()
+    tarifa_formatada = f'R${lastTarifa.valorHora:.2f}'.replace('.', ',')
+    tetoFormatado = f'R${lastTarifa.tetoDiario:.2f}'.replace('.',',')
+    return render_template('configuracao_cobranca.html', tarifa = tarifa_formatada, tolerancia = lastTarifa.tolerancia, teto = tetoFormatado)

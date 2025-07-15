@@ -10,11 +10,14 @@ def novoMensalista():
 
 @app.route('/remover-mensalista')
 def removerMensalista():
-    return render_template('remover_mensalista.html')
+    lista_de_clientes = ClienteMensal.query.order_by(ClienteMensal.nome).all()
+    return render_template('remover_mensalista.html', clientes = lista_de_clientes)
 
 @app.route('/valor-mensal')
 def valorMensal():
-    return render_template('valor_mensal.html')
+    lastValor = PlanoMensal.query.order_by(PlanoMensal.data.desc()).first()
+    valorFormatado = f'R${lastValor.valor:.2f}'.replace('.',',')
+    return render_template('valor_mensal.html', valor = valorFormatado)
 
 @app.route('/Confirmar-cliente', methods = ['POST'])
 def confirmarCliente():
@@ -22,21 +25,16 @@ def confirmarCliente():
     cpf = request.form['cpf']
     placa = request.form['placa']
     veiculo = Veiculo.query.filter_by(placa=placa).first()
-    valor = 100
+    PlanoAtual = PlanoMensal.query.order_by(PlanoMensal.data.desc()).first()
 
     if ClienteMensal.query.filter_by(cpf = cpf).first():
-        return redirect(url_for('novoMensalista'))
+        return redirect(url_for('erro', mensagem_de_erro = 'Esse cpf já é cliente mensal.'))
     if veiculo:
-        clientes = ClienteMensal.query.all()
-        if clientes:
-            id = max(cliente.id for cliente in clientes) + 1
-        else:
-            id = 1
-        novoCliente = ClienteMensal(id = id, nome = nome, cpf = cpf, valor = valor)
+        novoCliente = ClienteMensal(nome = nome, cpf = cpf, plano_id = PlanoAtual.id)
         db.session.add(novoCliente)
-        veiculo.cliente_mensal_id = id
+        veiculo.cliente_mensal_id = cpf
         db.session.commit()
-        return redirect(url_for('confirmacao'))
+        return redirect(url_for('confirmacao', mensagem = 'Cliente registrado.'))
     else:
         return render_template('cadastro_veiculo.html', placa = placa)
     
@@ -60,7 +58,7 @@ def atualizar_atualizar_valor_mensal():
         db.session.commit()
     except Exception as e:
         print(f"Erro ao atualizar o valor mensal: {e}")
-        return render_template('valor_mensal.html', error="Erro ao atualizar o valor mensal.")
+        return redirect(url_for('erro', mensagem_de_erro = 'Erro ao atualizar valor mensal'))
 
-    return redirect(url_for('confirmacao'))
+    return redirect(url_for('confirmacao', mensagem = 'Valor mensal atualizado.'))
     
