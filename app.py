@@ -15,6 +15,7 @@ from views.veiculos import *
 from views.tarifa import *
 from views.mensalistas import *
 from views.core import *
+from views.relatorios import *
 
 from models import *
 

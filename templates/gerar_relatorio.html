@@ -1,27 +1,209 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=], initial-scale=1.0">
-    <title>Gerar Relatório</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/relatorios.css') }}">
+    <title>Relatórios</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 2rem;
+            min-width: 320px;
+            max-width: 400px;
+            flex: 1 1 350px;
+        }
+        select, input[type="date"], button {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        button {
+            background: #2d7ff9;
+            color: #fff;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #1a5fc2;
+        }
+        .rel-ant {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+        .relatorio {
+            background: #f5f5f5;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            padding: 1rem;
+        }
+        canvas {
+            max-width: 100%;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
+    <h1>Relatorios <a href="{{ url_for('index') }}">ParkView</a></h1>
+
     <div class="container">
-        <div class="form">
-            <h2>Login</h2>
-            <form action="{{ url_for('autenticar') }}" method="post">
-                <div class="form-group">
-                    <label for="tipo">Tipo do relatório:</label>
-                    <input type="radio" name="tipo" id="financeiro" value="financeiro" required>
-                    <label for="financeiro">Financeiro</label>
-                    <input type="radio" name="tipo" id="estadia" value="estadia" required>
-                    <label for="estadia">Estadia</label>
-                    <label for="vigencia">vigencia:</label>
-                    <input type="number" name="vigencia" id="vigencia" placeholder="Vigência em dias" required>
-                </div>
-                <button>Entrar</button>
+        <div class="card">
+            <h4>Gerar Novo Relatório</h4>
+            <form method="post" action="/relatorios">
+                <label for="tipo">Tipo de Relatório:</label>
+                <select name="tipo" id="tipo">
+                    <option value="ESTADIA" {% if last_relatorio and last_relatorio.tipo.name == 'ESTADIA' %}selected{% endif %}>Estadias</option>
+                    <option value="FINANCEIRO" {% if last_relatorio and last_relatorio.tipo.name == 'FINANCEIRO' %}selected{% endif %}>Financeiro</option>
+                </select>
+                <label for="vigencia">Frequência:</label>
+                <select name="vigencia" id="vigencia">
+                    <option value="DIARIO" {% if last_relatorio and last_relatorio.vigenciaDias and last_relatorio.vigenciaDias.name == 'DIARIO' %}selected{% endif %}>Diário</option>
+                    <option value="SEMANAL" {% if last_relatorio and last_relatorio.vigenciaDias and last_relatorio.vigenciaDias.name == 'SEMANAL' %}selected{% endif %}>Semanal</option>
+                    <option value="MENSAL" {% if last_relatorio and last_relatorio.vigenciaDias and last_relatorio.vigenciaDias.name == 'MENSAL' %}selected{% endif %}>Mensal</option>
+                </select>
+                <label for="data">Data de referência:</label>
+                <input type="date" name="data" id="data" value="{{ data_hj }}" required>
+                <button type="submit">Gerar Relatório</button>
             </form>
         </div>
+
+        <div class="card">
+            <h4>Gráfico de
+                {% if last_relatorio %}
+                    {{ last_relatorio.tipo.value|capitalize }} -
+                    {% if last_relatorio.vigenciaDias %}{{ last_relatorio.vigenciaDias.value|capitalize }}{% endif %}
+                {% else %}
+                    Estatísticas
+                {% endif %}
+            </h4>
+            <canvas id="graficoRelatorio"></canvas>
+        </div>
+
+        <div class="card">
+            <h4>Relatórios Anteriores</h4>
+            <div class="rel-ant">
+                {% for r in relatorios %}
+                    <div class="relatorio">
+                        <h5>Relatório {{ r.vigenciaDias.value }} - {{ r.tipo.value }} de {{ r.geracao }}</h5>
+                        <p>Data: {{ r.data }}</p>
+                        <a href="{{ url_for('ver_relatorio', id= r.id) }}">Ver Detalhes</a>
+                    </div>
+                {% endfor %}
+            </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Dados passados do backend para o JS
+        const tipo = "{{ last_relatorio.tipo.name if last_relatorio else '' }}";
+        const vigencia = "{{ last_relatorio.vigenciaDias.name if last_relatorio and last_relatorio.vigenciaDias else '' }}";
+        // Exemplo de dados, substitua por dados reais do backend
+        const dados = {{ last_relatorio.conteudo|tojson if last_relatorio else '{}' }};
+
+        function gerarDados(tipo, vigencia) {
+            if (tipo === 'ESTADIA') {
+                if (vigencia === 'DIARIO') {
+                    return {
+                        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
+                        datasets: [{
+                            label: 'Entradas',
+                            data: dados.entradas,
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                        }]
+                    };
+                } else if (vigencia === 'SEMANAL') {
+                    return {
+                        labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+                        datasets: [{
+                            label: 'Estadias',
+                            data: dados.estadias,
+                            backgroundColor: 'rgba(255, 206, 86, 0.6)'
+                        }]
+                    };
+                } else if (vigencia === 'MENSAL') {
+                    return {
+                        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+                        datasets: [{
+                            label: 'Estadias Mensais',
+                            data: dados.estadias,
+                            backgroundColor: 'rgba(75, 192, 192, 0.6)'
+                        }]
+                    };
+                }
+            } else if (tipo === 'FINANCEIRO') {
+                if (vigencia === 'DIARIO') {
+                    return {
+                        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
+                        datasets: [{
+                            label: 'Receita (R$)',
+                            data: dados.receita,
+                            backgroundColor: 'rgba(255, 99, 132, 0.6)'
+                        }]
+                    };
+                } else if (vigencia === 'SEMANAL') {
+                    return {
+                        labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+                        datasets: [{
+                            label: 'Receita Semanal (R$)',
+                            data: dados.receita,
+                            backgroundColor: 'rgba(153, 102, 255, 0.6)'
+                        }]
+                    };
+                } else if (vigencia === 'MENSAL') {
+                    return {
+                        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+                        datasets: [{
+                            label: 'Receita Mensal (R$)',
+                            data: dados.receita,
+                            backgroundColor: 'rgba(255, 159, 64, 0.6)'
+                        }]
+                    };
+                }
+            }
+            // Default
+            return {
+                labels: [],
+                datasets: []
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('graficoRelatorio').getContext('2d');
+            const chartData = gerarDados(tipo, vigencia);
+            new Chart(ctx, {
+                type: 'bar',
+                data: chartData,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: true },
+                        title: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

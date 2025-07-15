@@ -13,3 +13,8 @@ class TipoVeiculo(Enum):
 class TipoRelatorio(Enum):
     FINANCEIRO = 'financeiro'
     ESTADIA = 'estadia'
+    
+class TipoVigencia(Enum):
+    DIARIO = 'diario'
+    SEMANAL = 'semanal'
+    MENSAL = 'mensal'
