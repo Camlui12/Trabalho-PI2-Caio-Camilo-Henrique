@@ -62,3 +62,22 @@ def atualizar_atualizar_valor_mensal():
 
     return redirect(url_for('confirmacao', mensagem = 'Valor mensal atualizado.'))
     
+@app.route('/confirmar-remocao-mensalista', methods=['POST'])
+def confirmarRemocaoMensalista():
+    ids_dos_clientes_selecionados = request.form.getlist('selecionados')
+    if not ids_dos_clientes_selecionados:
+        return redirect(url_for('removerMensalista'))
+    try:
+        for cliente_cpf in ids_dos_clientes_selecionados:
+            cliente_a_remover = ClienteMensal.query.get(cliente_cpf)
+            
+            if cliente_a_remover:
+                db.session.delete(cliente_a_remover)
+                
+        db.session.commit()
+    
+    except Exception as e:
+        db.session.rollback()
+        print(f"Erro ao remover clientes: {e}")
+
+    return redirect(url_for('confirmacao', mensagem = 'Cliente(s) removido(s) com sucesso.'))
